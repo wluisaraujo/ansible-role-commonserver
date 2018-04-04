@@ -1,0 +1,15 @@
+---
+# tasks file for baseline-server
+
+- name:  Copia arquivos Base Linux
+  import_tasks: files.yml
+  when: (ansible_system == "Linux") 
+
+- name:  Instala pacotes Base (OS base Debian)
+  import_tasks: base-debian.yml
+  when: (ansible_os_family == "Debian")
+
+- name:  Instala pacotes Base (OS base Debian)
+  import_tasks: base-redhat.yml
+  when: (ansible_os_family == "RedHat")
+...
