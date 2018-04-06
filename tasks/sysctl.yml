@@ -1,0 +1,7 @@
+---
+# tasks file for iac-ansible-common-server
+- sysctl:
+        name: vm.swappiness
+        value: 5
+        state: present
+...

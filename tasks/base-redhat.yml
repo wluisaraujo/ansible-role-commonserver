@@ -1,7 +1,9 @@
 ---
-# tasks file for baseline-server
-- name: Instalar pacotes base (OS base Redhat/CentOS)
-  yum: name={{item}} state=latest 
+# tasks file for iac-ansible-common-server
+- selinux:
+    state: disabled
+    
+- yum: name={{item}} state=latest 
   with_items:
           - bash-completion
           - bind-utils

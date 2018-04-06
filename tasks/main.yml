@@ -1,15 +1,27 @@
 ---
-# tasks file for baseline-server
+# tasks file for iac-ansible-common-server
 
-- name:  Copia arquivos Base Linux
+- name: Copiando arquivos Base Linux
   import_tasks: files.yml
-  when: (ansible_system == "Linux") 
+  when: (ansible_system == "Linux")
 
-- name:  Instala pacotes Base (OS base Debian)
+- name: Aplicando PAM Limits
+  import_tasks: pamlimits.yml
+  when: (ansible_system == "Linux")
+
+- name: Aplicando Timezone America/SP
+  import_tasks: timezone.yml
+  when: (ansible_system == "Linux")
+
+- name: Aplicando Parametros Sysctl
+  import_tasks: sysctl.yml
+  when: (ansible_system == "Linux")
+
+- name: Instalando pacotes (OS Base Debian)
   import_tasks: base-debian.yml
   when: (ansible_os_family == "Debian")
-
-- name:  Instala pacotes Base (OS base Debian)
+  
+- name: Instalando pacotes e aplicando config (OS Base Redhat)
   import_tasks: base-redhat.yml
   when: (ansible_os_family == "RedHat")
 ...

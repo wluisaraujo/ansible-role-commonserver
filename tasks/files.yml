@@ -1,6 +1,5 @@
 ---
-# tasks file for baseline-server
-
+# tasks file for iac-ansible-common-server
 - name: Configurar arquivo /etc/hosts
   copy: src=etc-hosts 
         dest=/etc/hosts 
@@ -10,4 +9,13 @@
 
 - name: Configurar arquivo /etc/resolv.conf
   copy: src=etc-resolv.conf dest=/etc/resolv.conf owner=root group=root mode=0644
+  
+- name: Configurar arquivo /etc/motd
+  copy: src=motd.temp dest=/etc/motd owner=root group=root mode=0644
+
+- name: Configurar arquivo /etc/issue
+  copy: src=issue.temp dest=/etc/issue owner=root group=root mode=0644
+
+- name: Configurar arquivo /etc/issue.net
+  copy: src=issuenet.temp dest=/etc/issue.net owner=root group=root mode=0644  
 ...
