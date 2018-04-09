@@ -18,6 +18,7 @@
           - nmap
           - screen
           - sudo
+          - sysstat
           - tcpdump
           - tree
           - tzdata
