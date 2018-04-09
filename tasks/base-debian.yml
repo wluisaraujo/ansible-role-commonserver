@@ -15,12 +15,11 @@
           - nmap
           - scren
           - sudo
-	        - sysstat
+	  - sysstat
           - tcpdump
           - tree
           - tzdata
           - unzip
           - vim
           - wget
-
 ...
