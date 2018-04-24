@@ -8,6 +8,7 @@
           - ccze
           - curl
           - dnsutils
+	  - finger
           - htop
           - lsof
           - mlocate
