@@ -11,6 +11,7 @@
           - ccze
           - curl
           - epel-release
+          - finger
           - htop
           - lsof
           - mlocate
