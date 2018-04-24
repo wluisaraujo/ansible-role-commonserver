@@ -8,7 +8,7 @@
           - ccze
           - curl
           - dnsutils
-	  - finger
+          - finger
           - htop
           - lsof
           - mlocate
@@ -16,7 +16,7 @@
           - nmap
           - scren
           - sudo
-	  - sysstat
+          - sysstat
           - tcpdump
           - tree
           - tzdata
