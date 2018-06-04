@@ -15,7 +15,8 @@ galaxy_info:
      - all
 
   galaxy_tags:
-     - Server
+     - server 
+     - system 
 
   dependencies: []
 
