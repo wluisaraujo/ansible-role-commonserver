@@ -1,11 +1,15 @@
 ---
 # tasks file for iac-ansible-common-server
-- name: Configurar arquivo /etc/hosts
-  copy: src=etc-hosts 
-        dest=/etc/hosts 
-        owner=root 
-        group=root 
-        mode=0644
+
+- name: Configurarando entradas no arquivo /etc/hosts
+  lineinfile: dest=/etc/hosts 
+              state=present 
+              line={{ item }}
+  with_items:
+          - "192.168.130.251 frontend.exemplo.local"
+          - "192.168.130.251 rundeck.exemplo.local"
+          - "192.168.130.251 awx.exemplo.local"
+          - "192.168.130.250 backend.exemplo.local"
 
 - name: Configurar arquivo /etc/resolv.conf
   copy: src=etc-resolv.conf dest=/etc/resolv.conf owner=root group=root mode=0644
