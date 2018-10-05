@@ -7,6 +7,7 @@
         sysctl_file: /etc/sysctl.conf
         sysctl_set: yes
         reload: yes
+        ignoreerrors: yes
 
 - sysctl:
         name: net.ipv6.conf.all.disable_ipv6
@@ -15,6 +16,7 @@
         sysctl_file: /etc/sysctl.conf
         sysctl_set: yes
         reload: yes
+        ignoreerrors: yes
 
 - sysctl:
         name: kernel.nmi_watchdog
@@ -23,4 +25,5 @@
         sysctl_file: /etc/sysctl.conf
         sysctl_set: yes
         reload: yes
+        ignoreerrors: yes
 ...
