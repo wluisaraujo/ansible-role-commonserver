@@ -5,7 +5,7 @@
     state: disabled
     
 - yum: 
-    name: "{{item}}"
+    name: "{{ item }}"
     state: latest 
   with_items:
     - bash-completion
