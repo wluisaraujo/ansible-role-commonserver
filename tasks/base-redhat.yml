@@ -4,28 +4,30 @@
 - selinux:
     state: disabled
     
-- yum: name={{item}} state=latest 
+- yum: 
+  name: "{{ item }}" 
+  state: latest 
   with_items:
-          - bash-completion
-          - bash-completion-extras
-          - bind-utils
-          - bzip2
-          - ccze
-          - curl
-          - epel-release
-          - finger
-          - htop
-          - lsof
-          - mlocate
-          - nfs-utils
-          - nmap
-          - screen
-          - sudo
-          - sysstat
-          - tcpdump
-          - tree
-          - tzdata
-          - unzip
-          - vim
-          - wget
+    - bash-completion
+    - bash-completion-extras
+    - bind-utils
+    - bzip2
+    - cifs-utils
+    - curl
+    - finger
+    - htop
+    - lsof
+    - mlocate
+    - nfs-utils
+    - nmap
+    - screen
+    - sudo
+    - sysstat
+    - tcpdump
+    - tree
+    - tzdata
+    - unzip
+    - vim
+    - zip
+    - wget
 ...
