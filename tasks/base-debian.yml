@@ -1,26 +1,29 @@
 ---
 # tasks file for iac-ansible-common-server
+
 - name: Instalar pacotes base (OS base Debian)
-  apt: name={{item}} state=latest update_cache=true
+  apt: 
+    name: "{{ item }}" 
+    state: latest 
+    update_cache: true
   with_items:
-          - bash-completion
-          - bzip2
-          - ccze
-          - curl
-          - dnsutils
-          - finger
-          - htop
-          - lsof
-          - mlocate
-          - nfs-common
-          - nmap
-          - scren
-          - sudo
-          - sysstat
-          - tcpdump
-          - tree
-          - tzdata
-          - unzip
-          - vim
-          - wget
+    - bash-completion
+    - bzip2
+    - curl
+    - dnsutils
+    - finger
+    - htop
+    - lsof
+    - mlocate
+    - nfs-common
+    - nmap
+    - screen
+    - sudo
+    - sysstat
+    - tcpdump
+    - tree
+    - tzdata
+    - unzip
+    - vim
+    - wget
 ...
