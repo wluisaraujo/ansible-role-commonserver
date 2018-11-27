@@ -1,0 +1,48 @@
+- name: "Install required packages (RedHat)"
+  yum:
+    name: "{{ item }}"
+    state: "latest"
+  with_items:
+    - "clamav"
+    - "clamav-scanner"
+    - "clamav-scanner-systemd"
+  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == "7"
+
+- name: "Enable and start services"
+  service:
+    name: "clamd@scan"
+    state: "started"
+  enabled: "yes"
+  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == "7"
+
+- name: Install Clamav on RHEL/Centos 6
+  yum:
+    name: clamd
+    state: "latest"
+  enabled: "yes"
+  when: ansible_family == 'RedHat' and  ansible_distribution_major_version == "6"
+
+- name: Install Clamav on Debian/Ubuntu
+  apt:
+    name: clamav
+    state: "latest"
+  enabled: "yes"
+  when: ansible_os_family == 'Debian'
+
+  - name: Clamav - Atualizando
+    command: /usr/bin/freshclam
+    when: ansible_distribution == 'RedHat'
+    ignore_errors: yes
+
+  - name: Clamav - Copiando Clamconf
+    copy: src=clamconf dest=/etc/clamd.conf force=yes
+    when: ansible_distribution == 'RedHat'
+
+  - name: Clamav - Criando cron
+    copy: src=clamdscan dest=/etc/cron.d/clamdscan
+    when: ansible_distribution == 'RedHat'
+
+  - name: Clamav - Inicializando
+    shell: /etc/init.d/clamd restart
+    when: ansible_distribution == 'RedHat'
+    ignore_errors: yes
