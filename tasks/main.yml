@@ -5,27 +5,27 @@
   import_tasks: files.yml
   when: (ansible_system == "Linux")
 
-#- name: Aplicando PAM Limits
-#  import_tasks: pamlimits.yml
-#  when: (ansible_system == "Linux")
+- name: Aplicando PAM Limits
+  import_tasks: pamlimits.yml
+  when: (ansible_system == "Linux")
 
 - name: Aplicando Timezone America/SP
   import_tasks: timezone.yml
   when: (ansible_system == "Linux")
 
-#- name: Aplicando Parametros Sysctl
-#  import_tasks: sysctl.yml
-#  when: (ansible_system == "Linux")
+- name: Aplicando Parametros Sysctl
+  import_tasks: sysctl.yml
+  when: (ansible_system == "Linux")
 
-#- name: Instalando pacotes (OS Base Debian)
-#  import_tasks: base-debian.yml
-#  when: (ansible_os_family == "Debian")
+- name: Instalando pacotes (OS Base Debian)
+  import_tasks: base-debian.yml
+  when: (ansible_os_family == "Debian")
   
-#- name: Instalando pacotes e aplicando config (OS Base Redhat)
-#  import_tasks: base-redhat.yml
-#  when: (ansible_distribution == "RedHat")
+- name: Instalando pacotes e aplicando config (OS Base Redhat)
+  import_tasks: base-redhat.yml
+  when: (ansible_distribution == "RedHat")
 
-#- name: Instalando pacotes e aplicando config (OS Base CentOS)
-#  import_tasks: base-centos.yml
-#  when: (ansible_distribution == "CentOS")
+- name: Instalando pacotes e aplicando config (OS Base CentOS)
+  import_tasks: base-centos.yml
+  when: (ansible_distribution == "CentOS")
 ...

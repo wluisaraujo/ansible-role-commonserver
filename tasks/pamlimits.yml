@@ -1,8 +1,8 @@
 ---
 # tasks file for iac-ansible-common-server
 - pam_limits: 
-  domain: '*'
-  limit_type: hard
-  limit_item: nproc
-  value: 100
+    domain: '*'
+    limit_type: hard
+    limit_item: nproc
+    value: 100
 ...
