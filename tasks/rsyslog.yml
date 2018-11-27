@@ -1,0 +1,24 @@
+---
+  - name: Instalando Rsyslog
+    yum: name=rsyslog state=present
+    when: ansible_distribution == 'RedHat' and ansible_distribution_release == 'Tikanga'
+
+  - name: Adicionando Rsyslog no boot
+    service: name=rsyslog enabled=yes
+    when: ansible_distribution == 'RedHat' and ansible_distribution_release == 'Tikanga'
+
+  - name: Removendo Syslog do boot
+    service: name=syslog enabled=no
+    when: ansible_distribution == 'RedHat' and ansible_distribution_release == 'Tikanga'
+
+  - name: Alterando SYSLOGD_OPTIONS
+    lineinfile: dest=/etc/sysconfig/rsyslog state=present regexp='^SYSLOGD_OPTIONS' line='SYSLOGD_OPTIONS="-c3"'
+    when: ansible_os_family == 'RedHat' and ansible_distribution_release == 'Tikanga'
+
+  - name: Adicionando linhas no RSYSLOG
+    lineinfile: dest=/etc/rsyslog.conf line="{{ item }}"
+    notify: restart rsyslog
+
+    with_items:
+#     - $ModLoad imtcp
+     - '*.* @@audit.dexter.com.br:514'
