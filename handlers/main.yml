@@ -1,2 +1,15 @@
 ---
-# handlers file for baseline-server
+# handlers file for common-server
+ - name: restart rsyslog
+   service: name=rsyslog state=restarted
+
+ - name: restart sshd
+   service: name=sshd state=restarted
+   when: ansible_os_family == 'RedHat'
+
+ - name: restart ssh
+   service: name=ssh state=restarted
+   when: ansible_os_family == 'Debian'
+
+ - name: restart snmpd
+   service: name=snmpd state=restarted
