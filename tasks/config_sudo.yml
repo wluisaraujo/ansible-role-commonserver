@@ -58,20 +58,16 @@
 #        insertline: '%wheel  ALL=(ALL:ALL) ALL'                     }
 #    - { checkreg: '^%sudo',                     
 #        insertline: '%sudo   ALL=(ALL:ALL) ALL'                     }
-#    - { checkreg: '^Defaults:solarwinds.ssh',   
-#        insertline: 'Defaults:solarwinds.ssh !requiretty'           }
-#    - { checkreg: '^solarwinds.ssh ALL',         
-#        insertline: 'solarwinds.ssh ALL = NOPASSWD: ALL'            }
-#    - { checkreg: '^%backup.corpflex',            
-#        insertline: '%backup.corpflex  ALL=(ALL:ALL) ALL'           }
-#    - { checkreg: '^%dba.corpflex',               
-#        insertline: '%dba.corpflex  ALL=(ALL:ALL) ALL'              }
-#    - { checkreg: '^%operacao.corpflex',          
-#        insertline: '%operacao.corpflex  ALL=(ALL:ALL) ALL'         }
-#    - { checkreg: '^%suporte1.corpflex',         
-#        insertline: '%suporte1.corpflex ALL = SUPORTEN1'            }
-#    - { checkreg: '^%suporte2.corpflex',         
-#        insertline: '%suporte2.corpflex ALL = SUPORTEN1, SUPORTEN2' }
+#    - { checkreg: '^%backup',            
+#        insertline: '%backup  ALL=(ALL:ALL) ALL'           }
+#    - { checkreg: '^%dba',               
+#        insertline: '%dba  ALL=(ALL:ALL) ALL'              }
+#    - { checkreg: '^%operacao',          
+#        insertline: '%operacao  ALL=(ALL:ALL) ALL'         }
+#    - { checkreg: '^%suporte1',         
+#        insertline: '%suporte1 ALL = SUPORTEN1'            }
+#    - { checkreg: '^%suporte2',         
+#        insertline: '%suporte2 ALL = SUPORTEN1, SUPORTEN2' }
 
 #END PLAYBOOK
 ...
