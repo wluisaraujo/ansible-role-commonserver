@@ -1,0 +1,77 @@
+---
+## tasks file for common-server
+- yum:
+    name: sudo
+    state: present
+  when: ( ansible_os_family == RedHat )
+  register: SUDOINSTALLED
+
+- apt:
+    name: sudo
+    state: present
+    update_cache: true
+  when: ( ansible_os_family == Debian )
+  register: SUDOINSTALLED
+
+- zypper:
+    name: sudo
+    state: present
+    update_cache: true
+  when: ( ansible_os_family == Suse )
+  register: SUDOINSTALLED
+
+##
+#- name: Habilitando configuracoes do SUDO
+#  lineinfile:
+#    path: /etc/sudoers
+#    state: present
+#    #regexp: '{{ item.checkconf }}'     
+#    line: "{{ item.insertconf }}"
+#    owner: root
+#    group: root
+#    mode: 0440
+#    validate: '/usr/sbin/visudo -cf %s'
+#  with_items:
+#    - { checkconf: '^Defaults	logfile',       
+#        insertconf: 'Defaults	logfile="/var/log/sudo.log"' 
+#      }
+#    - { checkconf: '^Cmnd_Alias	logfile',       
+#        insertconf: 'Cmnd_Alias SUPORTEN1 = /usr/bin/systemctl * snmpd, /bin/systemctl * snmpd, /sbin/service snmpd *, /usr/sbin/service snmpd * '
+#      }
+#    - { checkconf: '^Cmnd_Alias	logfile',       
+#        insertconf: 'Cmnd_Alias SUPORTEN2 = /usr/bin/systemctl * apache2, /bin/systemctl * apache2, /sbin/service apache2 *, /usr/sbin/service apache2 *, /usr/bin/systemctl * httpd, /bin/systemctl * httpd, /sbin/service httpd *, /usr/sbin/service httpd * '
+#      }
+## END SUDO CONF
+  
+#- name: Habilitando USERS SUDO
+#  lineinfile: 
+#    path: /etc/sudoers
+#    state: present
+#    regexp: '{{ item.checkreg }}'     
+#    line: '{{ item.insertline }}'
+#    owner: root
+#    group: root
+#    mode: 0440
+#    validate: '/usr/sbin/visudo -cf %s'
+#  with_items:
+#    - { checkreg: '^%wheel',                    
+#        insertline: '%wheel  ALL=(ALL:ALL) ALL'                     }
+#    - { checkreg: '^%sudo',                     
+#        insertline: '%sudo   ALL=(ALL:ALL) ALL'                     }
+#    - { checkreg: '^Defaults:solarwinds.ssh',   
+#        insertline: 'Defaults:solarwinds.ssh !requiretty'           }
+#    - { checkreg: '^solarwinds.ssh ALL',         
+#        insertline: 'solarwinds.ssh ALL = NOPASSWD: ALL'            }
+#    - { checkreg: '^%backup.corpflex',            
+#        insertline: '%backup.corpflex  ALL=(ALL:ALL) ALL'           }
+#    - { checkreg: '^%dba.corpflex',               
+#        insertline: '%dba.corpflex  ALL=(ALL:ALL) ALL'              }
+#    - { checkreg: '^%operacao.corpflex',          
+#        insertline: '%operacao.corpflex  ALL=(ALL:ALL) ALL'         }
+#    - { checkreg: '^%suporte1.corpflex',         
+#        insertline: '%suporte1.corpflex ALL = SUPORTEN1'            }
+#    - { checkreg: '^%suporte2.corpflex',         
+#        insertline: '%suporte2.corpflex ALL = SUPORTEN1, SUPORTEN2' }
+
+#END PLAYBOOK
+...
