@@ -20,41 +20,40 @@
     repo: deb http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/ ./
     state: present
   register: OVIRTREPO
-  when: 
-    - ansible_virtualization_type == "RHEV" 
-    - ansible_os_family == "Debian"
+  when: ( ansible_virtualization_type == "RHEV" and ansible_distribution == "Debian" )
 
-#  shell: "gpg -v -a --keyserver http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/Release.key --recv-keys D5C7F7C373A1A299"
-#  when: (OVIRTREPO is success)
+- shell: "gpg -v -a --keyserver http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/Release.key --recv-keys D5C7F7C373A1A299 2> /dev/null"
+  args:
+    executable: /bin/bash
+  when: ( ansible_virtualization_type == "RHEV" and ansible_distribution == "Debian" and OVIRTREPO is success )
 
-#  shell: "gpg --export --armor 73A1A299 | apt-key add -"
-#  when: (OVIRTREPO is success)
- 
-#  apt:
-#    name: ovirt-guest-agent
-#    state: latest
-#    update_cache: true
-#  register: OVIRTGUEST
-#  when:
-#    - ansible_virtualization_type == "RHEV" 
-#    - ansible_os_family == "Debian"
-#    - OVIRTREPO is success
+- shell: "gpg --export --armor 73A1A299 | apt-key add - 2> /dev/null"
+  args:
+    executable: /bin/bash 
+  when: (ansible_virtualization_type == "RHEV" and ansible_distribution == "Debian" and OVIRTREPO is success )
 
-- name: Instalando Ovirt Guest Agent para Debian
-  yum:
+- apt:
+    name: ovirt-guest-agent
+    state: latest
+    update_cache: true
+  register: OVIRTGUEST
+  when: ( ansible_virtualization_type == "RHEV" and ansible_os_family == "Debian" and OVIRTREPO is success )
+
+- yum:
     name: centos-release-CentOS
     state: latest
   register: OVIRTREPO
+  when: ( ansible_virtualization_type == "RHEV" and ansible_distribution == "CentOS" )
 
 - yum:
     name: ovirt-guest-agent-common
     state: latest
   register: OVIRTGUEST  
-  when: ( ansible_virtualization_type == "RHEV" ) # and ansible_distribution == "CentOS" )
+  when: ( ansible_virtualization_type == "RHEV" and ansible_distribution == "CentOS" and OVIRTREPO is success )
 
-#  systemd:
-#    state: started
-#    name:  ovirt-guest-agent.service     
-#    enabled: yes
-#    when: ( ansible_virtualization_type == "RHEV" ) # and OVIRTGUEST is success)
+- systemd:
+    state: started
+    name:  ovirt-guest-agent.service     
+    enabled: yes
+  when: ( ansible_virtualization_type == "RHEV" and OVIRTGUEST is success )
 ...

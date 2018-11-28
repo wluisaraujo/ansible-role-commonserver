@@ -5,13 +5,13 @@
   import_tasks: linux-environment.yml
   when: ( ansible_system == "Linux" )
 
-- name: Aplicando Timezone America/SP
-  import_tasks: timezone.yml
-  when: ( ansible_system == "Linux" )
+#- name: Aplicando Timezone America/SP
+#  import_tasks: timezone.yml
+#  when: ( ansible_system == "Linux" )
 
-- name: Aplicando Parametros Sysctl
-  import_tasks: sysctl.yml
-  when: ( ansible_system == "Linux" )
+#- name: Aplicando Parametros Sysctl
+#  import_tasks: sysctl.yml
+#  when: ( ansible_system == "Linux" )
 
 - name: Instalando pacotes (OS Base Debian)
   import_tasks: base-debian.yml
@@ -29,11 +29,11 @@
   import_tasks: guest-agent.yml
   when: ( ansible_system == "Linux" and PACKAGE is success)  
 
-- name: Copiando arquivos Base Linux
-  import_tasks: files.yml
-  when: ( ansible_system == "Linux" )
+#- name: Copiando arquivos Base Linux
+#  import_tasks: files.yml
+#  when: ( ansible_system == "Linux" )
 
-- name: Aplicando PAM Limits
-  import_tasks: pamlimits.yml
-  when: ( ansible_system == "Linux" )
+#- name: Aplicando PAM Limits
+#  import_tasks: pamlimits.yml
+#  when: ( ansible_system == "Linux" )
 ...
