@@ -5,4 +5,11 @@
     limit_type: hard
     limit_item: nproc
     value: 100
+    
+#- pam_limits:
+#    domain: "*"
+#    limit_type: hard
+#    limit_item: core
+#    value: 0
+    
 ...

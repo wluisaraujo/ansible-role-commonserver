@@ -25,6 +25,10 @@
   import_tasks: base-centos.yml
   when: ( ansible_distribution == "CentOS" and YUM2PROXY is success)
 
+- name: Instalando VM Guest Agent
+  import_tasks: guest-agent.yml
+  when: ( ansible_system == "Linux" and PACKAGE is success)  
+
 - name: Copiando arquivos Base Linux
   import_tasks: files.yml
   when: ( ansible_system == "Linux" )

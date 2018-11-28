@@ -30,4 +30,5 @@
     - vim
     - zip
     - wget
+  register: PACKAGE    
 ...

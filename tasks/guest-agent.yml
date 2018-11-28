@@ -1,0 +1,60 @@
+---
+# tasks file for iac-ansible-common-server
+
+## VMware
+- name: Instalando VMware Guest Agent para Debian
+  apt:
+    name: open-vm-tools
+    state: latest
+    update_cache: true
+  when: ( ansible_virtualization_type == "VMware" and ansible_os_family == "Debian" )
+
+- name: Instalando VMware Guest Agent para CentOS
+  yum:
+    name: open-vm-tools
+    state: latest
+  when: ( ansible_virtualization_type == "VMware" and ansible_distribution == "CentOS" )  
+
+- name: Instalando oVirt Guest Agent para Debian
+  apt_repository:
+    repo: deb http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/ ./
+    state: present
+  register: OVIRTREPO
+  when: 
+    - ansible_virtualization_type == "RHEV" 
+    - ansible_os_family == "Debian"
+
+#  shell: "gpg -v -a --keyserver http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/Release.key --recv-keys D5C7F7C373A1A299"
+#  when: (OVIRTREPO is success)
+
+#  shell: "gpg --export --armor 73A1A299 | apt-key add -"
+#  when: (OVIRTREPO is success)
+ 
+#  apt:
+#    name: ovirt-guest-agent
+#    state: latest
+#    update_cache: true
+#  register: OVIRTGUEST
+#  when:
+#    - ansible_virtualization_type == "RHEV" 
+#    - ansible_os_family == "Debian"
+#    - OVIRTREPO is success
+
+- name: Instalando Ovirt Guest Agent para Debian
+  yum:
+    name: centos-release-CentOS
+    state: latest
+  register: OVIRTREPO
+
+- yum:
+    name: ovirt-guest-agent-common
+    state: latest
+  register: OVIRTGUEST  
+  when: ( ansible_virtualization_type == "RHEV" ) # and ansible_distribution == "CentOS" )
+
+#  systemd:
+#    state: started
+#    name:  ovirt-guest-agent.service     
+#    enabled: yes
+#    when: ( ansible_virtualization_type == "RHEV" ) # and OVIRTGUEST is success)
+...

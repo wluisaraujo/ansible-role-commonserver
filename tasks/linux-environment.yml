@@ -32,28 +32,19 @@
   register: APT2PROXY
   when: ( ansible_os_family == "Debian" )
 
-- name: Definido variaveis para o history (Debian)
+- name: Definido variaveis de perfil
   lineinfile:
-    path: /etc/bash.bashrc
+    path: /etc/profile
     state: present
     line: "{{ item }}"
   with_items:
     - 'export HISTTIMEFORMAT="[%d/%m/%y %T] "'
-  when: ( ansible_os_family == "Debian" )
+    - 'export TMOUT=600'
 
-- name: Definido variaveis para o history (RedHat)
-  lineinfile:
-    path: /etc/bashrc
-    state: present
-    line: "{{ item }}"
-  with_items:
-    - 'export HISTTIMEFORMAT="[%d/%m/%y %T] "'
-  when: ( ansible_os_family == "RedHat" )
-
-- name: Configurando /etc/hosts.allow 
-  lineinfile: 
-    path: /etc/hosts.allow
-    line: "{{ item }}"
-  with_items:
-          - 'ALL: ALL: spawn /bin/echo "Tentativa de acesso em [$(/bin/date)] - Origem [ %u@%h (%n) ]" &>> /var/log/tcpwrappers.log'
+#- name: Configurando /etc/hosts.allow 
+#  lineinfile: 
+#    path: /etc/hosts.allow
+#    line: "{{ item }}"
+#  with_items:
+#          - 'ALL: ALL: spawn /bin/echo "Tentativa de acesso em [$(/bin/date)] - Origem [ %u@%h (%n) ]" &>> /var/log/tcpwrappers.log'
 ...
