@@ -7,16 +7,16 @@
     state: present
     line: "{{ item }}"
   with_items:
-    - export http_proxy="proxy.exemplo.local:3128"
-    - export https_proxy="proxy.exemplo.local:3128"
-    - export ftp_proxy="proxy.exemplo.local:3128"
-    - export ftps_proxy="proxy.exemplo.local:3128"
+    - export http_proxy="proxy.{{ MEUDOMINIO }}:3128"
+    - export https_proxy="proxy.{{ MEUDOMINIO }}:3128"
+    - export ftp_proxy="proxy.{{ MEUDOMINIO }}:3128"
+    - export ftps_proxy="proxy.{{ MEUDOMINIO }}:3128"
     - export no_proxy="127.0.0.1, localhost"
 
 - lineinfile:
     path: /etc/yum.conf
     state: present
-    line: proxy=http://proxy.exemplo.local:3128
+    line: proxy=http://proxy.{{ MEUDOMINIO }}:3128
   register: YUM2PROXY
   when: ( ansible_os_family == "RedHat" )
 
@@ -26,9 +26,9 @@
     line: "{{ item }}"
     create: yes
   with_items:
-    - Acquire::http::proxy "http://proxy.exemplo.local:3128/";
-    - Acquire::https::proxy "https://proxy.exemplo.local:3128/";
-    - Acquire::ftp::proxy "ftp://proxy.exemplo.local:3128/";
+    - Acquire::http::proxy "http://proxy.{{ MEUDOMINIO }}:3128/";
+    - Acquire::https::proxy "https://proxy.{{ MEUDOMINIO }}:3128/";
+    - Acquire::ftp::proxy "ftp://proxy.{{ MEUDOMINIO }}:3128/";
   register: APT2PROXY
   when: ( ansible_os_family == "Debian" )
 

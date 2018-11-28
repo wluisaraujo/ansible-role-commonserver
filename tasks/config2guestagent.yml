@@ -45,11 +45,23 @@
   register: OVIRTREPO
   when: ( ansible_virtualization_type == "RHEV" and ansible_distribution == "CentOS" )
 
+- rhsm_repository:
+    name: rhel-7-server-rpms
+    state: enabled
+  register: OVIRTREPO
+  when: ( ansible_virtualization_type == "RHEV" and ansible_distribution == "RedHat" )
+
 - yum:
     name: ovirt-guest-agent-common
     state: latest
-  register: OVIRTGUEST  
+  register: OVIRTGUEST
   when: ( ansible_virtualization_type == "RHEV" and ansible_distribution == "CentOS" and OVIRTREPO is success )
+
+- yum:
+    name: rhevm-guest-agent-common
+    state: latest
+  register: OVIRTGUEST
+  when: ( ansible_virtualization_type == "RHEV" and ansible_distribution == "RedHat" and OVIRTREPO is success )
 
 - systemd:
     state: started

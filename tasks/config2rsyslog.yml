@@ -20,4 +20,4 @@
     notify: restart rsyslog
 
     with_items:
-     - '*.* @@audit.dexter.com.br:514'
+      - '*.* @@audit.{{ MEUDOMINIO }}:514'

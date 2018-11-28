@@ -32,6 +32,10 @@ Ajusta configurações de sistemas Linux, seguindo boas práticas ;)
 
 - timezone.yml
 
+Variaveis
+------------
+
+- MEUDOMINIO: define o dominio do ambiente  
 
 Requirements
 ------------

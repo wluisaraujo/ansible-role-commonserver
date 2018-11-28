@@ -1,5 +1,0 @@
----
-# tasks file for iac-ansible-common-server
-- timezone:
-        name: America/Sao_Paulo
-...

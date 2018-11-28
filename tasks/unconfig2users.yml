@@ -1,0 +1,18 @@
+---
+##
+- user: 
+    state: absent
+    name: "{{ item }}"
+  with_items:
+    - "oldadmin"
+    - "corgui"
+
+- name: "Remove users de /etc/sudoers"
+  lineinfile: 
+    dest=/etc/sudoers 
+    state=absent 
+    regexp='^{{ item }}' 
+    line='{{ item }} ALL=(ALL) ALL'
+  with_items:
+    - "oldadmin"
+    - "corgui"

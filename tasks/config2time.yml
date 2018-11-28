@@ -1,0 +1,46 @@
+---
+# tasks file for iac-ansible-common-server
+
+- yum: name={{ item }} state=latest
+  with_items:
+    - tzdata
+    - chrony
+  when: (ansible_os_family == "RedHat")
+  register: PACKAGE
+
+- apt: name={{ item }} state=latest update_cache=yes
+  with_items:
+    - tzdata
+    - chrony
+  when: (ansible_os_family == "Debian")
+  register: PACKAGE
+
+- timezone:
+        name: America/Sao_Paulo
+
+- systemd:
+    state: started
+    name:  chronyd.service 
+    enabled: yes
+  when: (ansible_os_family == "RedHat") or (ansible_os_family == "Debian") 
+##
+#- name: Remove Zone Info
+#  file:
+#    path: /etc/localtime
+#    state: absent
+#
+#- name: copying file Time Zone
+#  copy:
+#    src: Localtime_Sao_Paulo
+#    dest: /usr/share/zoneinfo/America/Sao_Paulo
+#
+#- name: Link Simbolico NTP
+#  file:
+#    src: /usr/share/zoneinfo/America/Sao_Paulo
+#    dest: /etc/localtime
+#    state: link
+#
+#- name: Set time Zone Info and Hour
+#  shell: zdump -v /etc/localtime | egrep '201[89]'
+##
+...

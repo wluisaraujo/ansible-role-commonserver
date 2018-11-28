@@ -1,0 +1,11 @@
+---
+# tasks file for iac-ansible-common-server
+- redhat_subscription:
+    state: present
+    username: Exemplo
+    password: BataT@
+    auto_attach: true
+  when: (ansible_distribution == "RedHat")
+  register: REDHATSUB
+ 
+...
