@@ -1,10 +1,37 @@
 [![Build Status](https://travis-ci.org/wluisaraujo/iac-ansible-common-server.svg?branch=master)](https://travis-ci.org/wluisaraujo/iac-ansible-common-server)
 =========
 
-Role Name
+iac-ansible-common-server
 =========
 
-A brief description of the role goes here.
+Ajusta configurações de sistemas Linux, seguindo boas práticas ;)
+
+- base-centos.yml
+
+- base-debian.yml
+
+- base-redhat.yml
+
+- clamav.yml
+
+- config2sudo.yml
+
+- epel.yml
+
+- files.yml
+
+- linux-environment.yml 
+
+- pamlimits.yml 
+
+- rsyslog.yml
+
+- snmpd.yml 
+
+- sysctl.yml 
+
+- timezone.yml
+
 
 Requirements
 ------------
