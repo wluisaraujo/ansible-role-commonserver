@@ -1,3 +1,5 @@
 ---
 # vars file for baseline-server
 MEUDOMINIO: exemplo.local
+PROXYSERVER: proxy.{{ MEUDOMINIO }} 
+PROXYPORT: 3128

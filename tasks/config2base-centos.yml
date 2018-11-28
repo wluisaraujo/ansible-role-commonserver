@@ -1,0 +1,15 @@
+---
+# tasks file for iac-ansible-common-server
+
+- selinux:
+    state: disabled
+    
+- systemd:
+    state: stopped
+    name:  firewalld.service     
+    enabled: no
+    masked : yes
+    force: yes
+  ignore_errors: yes  
+   
+...

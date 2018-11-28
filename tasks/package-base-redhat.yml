@@ -30,5 +30,6 @@
     - vim
     - zip
     - wget
-  register: PACKAGE    
+  register: PACKAGE
+  when: ( REDHATREGISTRADO is success )    
 ...

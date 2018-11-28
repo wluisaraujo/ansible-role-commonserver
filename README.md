@@ -35,7 +35,11 @@ Ajusta configurações de sistemas Linux, seguindo boas práticas ;)
 Variaveis
 ------------
 
-- MEUDOMINIO: define o dominio do ambiente  
+- MEUDOMINIO: define o dominio do ambiente
+
+- PROXYSERVER: define o servidor de proxy
+
+- PROXYPORT: define a porta do proxy 
 
 Requirements
 ------------

@@ -17,13 +17,13 @@
   import_tasks: package-base-debian.yml
   when: ( ansible_os_family == "Debian" and APT2PROXY is success ) 
 
-- name: Instalando pacotes e aplicando config (OS Base CentOS)
+- name: Instalando pacotes (Sistemas CentOS)
   import_tasks: package-base-centos.yml
   when: ( ansible_distribution == "CentOS" and YUM2PROXY is success)
 
-- name: Instalando pacotes e aplicando config (OS Base Redhat)
+- name: Instalando pacotes (Sistemas Redhat)
   import_tasks: package-base-redhat.yml
-  when: ( ansible_distribution == "RedHat" and YUM2PROXY is success )
+  when: ( ansible_distribution == "RedHat" and YUM2PROXY is success and REDHATREGISTRADO is success )
 
 - name: Registrando sistemas Redhat)
   import_tasks: config2redhatregister.yml
@@ -32,6 +32,10 @@
 - name: Instalando VM Guest Agent
   import_tasks: config2guestagent.yml
   when: ( ansible_system == "Linux" and PACKAGE is success)  
+
+- name: Aplicando configuracoes para (Sistemas CentOS)
+  import_tasks: config2base-centos.yml
+  when: ( ansible_distribution == "CentOS" and YUM2PROXY is success)
 
 - name: Copiando arquivos
   import_tasks: config2files.yml

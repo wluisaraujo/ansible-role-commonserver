@@ -9,7 +9,9 @@
   with_items:
     - bash-completion
     - bzip2
+    - chrony
     - curl
+    - cifs-utils
     - dnsutils
     - finger
     - htop
@@ -17,6 +19,7 @@
     - mlocate
     - nfs-common
     - nmap
+    - net-tools
     - screen
     - sudo
     - sysstat
@@ -26,5 +29,6 @@
     - unzip
     - vim
     - wget
-  register: PACKAGE
+    - zip
+  register: DEBIANPACKAGE
 ...
