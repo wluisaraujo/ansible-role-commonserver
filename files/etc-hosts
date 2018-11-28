@@ -1,12 +1,12 @@
 ## /etc/hosts atualizado via ansible
 127.0.0.1	localhost	localhost.localdomain
 
-192.168.200.30	audit		    audit.dexter.com.br
-192.168.200.131	datacenter	    datacenter.dexter.com.br
-192.168.200.11	desktopwindows	desktopwindows.dexter.com.br
-192.168.200.40	fileserver	    fileserver.dexter.com.br
-192.168.200.10	linuxinterna	linuxinterna.dexter.com.br
-192.168.200.1	security	    security.dexter.com.br
-192.168.200.50	storage		    storage.dexter.com.br
+192.168.200.30	audit		        audit.dexter.com.br
+192.168.200.131	datacenter	        datacenter.dexter.com.br
+192.168.200.11	desktopwindows	    desktopwindows.dexter.com.br
+192.168.200.40	fileserver	        fileserver.dexter.com.br
+192.168.200.10	linuxinterna	    linuxinterna.dexter.com.br
+192.168.200.1	security	        security.dexter.com.br
+192.168.200.50	storage		        storage.dexter.com.br
 192.168.200.130	webserverinterno    webserverinterno.dexter.com.br
 

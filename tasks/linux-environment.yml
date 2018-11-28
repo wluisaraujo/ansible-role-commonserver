@@ -7,16 +7,16 @@
     state: present
     line: "{{ item }}"
   with_items:
-    - export http_proxy="proxy.dexter.com.br:3128"
-    - export https_proxy="proxy.dexter.com.br:3128"
-    - export ftp_proxy="proxy.dexter.com.br:3128"
-    - export ftps_proxy="proxy.dexter.com.br:3128"
+    - export http_proxy="proxy.exemplo.local:3128"
+    - export https_proxy="proxy.exemplo.local:3128"
+    - export ftp_proxy="proxy.exemplo.local:3128"
+    - export ftps_proxy="proxy.exemplo.local:3128"
     - export no_proxy="127.0.0.1, localhost"
 
 - lineinfile:
     path: /etc/yum.conf
     state: present
-    line: proxy=http://proxy.dexter.com.br:3128
+    line: proxy=http://proxy.exemplo.local:3128
   register: YUM2PROXY
   when: ( ansible_os_family == "RedHat" )
 
@@ -26,9 +26,34 @@
     line: "{{ item }}"
     create: yes
   with_items:
-    - Acquire::http::proxy "http://proxy.dexter.com.br:3128/";
-    - Acquire::https::proxy "https://proxy.dexter.com.br:3128/";
-    - Acquire::ftp::proxy "ftp://proxy.dexter.com.br:3128/";
+    - Acquire::http::proxy "http://proxy.exemplo.local:3128/";
+    - Acquire::https::proxy "https://proxy.exemplo.local:3128/";
+    - Acquire::ftp::proxy "ftp://proxy.exemplo.local:3128/";
   register: APT2PROXY
   when: ( ansible_os_family == "Debian" )
+
+- name: Definido variaveis para o history (Debian)
+  lineinfile:
+    path: /etc/bash.bashrc
+    state: present
+    line: "{{ item }}"
+  with_items:
+    - 'export HISTTIMEFORMAT="[%d/%m/%y %T] "'
+  when: ( ansible_os_family == "Debian" )
+
+- name: Definido variaveis para o history (RedHat)
+  lineinfile:
+    path: /etc/bashrc
+    state: present
+    line: "{{ item }}"
+  with_items:
+    - 'export HISTTIMEFORMAT="[%d/%m/%y %T] "'
+  when: ( ansible_os_family == "RedHat" )
+
+- name: Configurando /etc/hosts.allow 
+  lineinfile: 
+    path: /etc/hosts.allow
+    line: "{{ item }}"
+  with_items:
+          - 'ALL: ALL: spawn /bin/echo "Tentativa de acesso em [$(/bin/date)] - Origem [ %u@%h (%n) ]" &>> /var/log/tcpwrappers.log'
 ...

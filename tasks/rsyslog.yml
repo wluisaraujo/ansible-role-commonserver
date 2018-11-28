@@ -20,5 +20,4 @@
     notify: restart rsyslog
 
     with_items:
-#     - $ModLoad imtcp
      - '*.* @@audit.dexter.com.br:514'
