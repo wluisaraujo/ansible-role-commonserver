@@ -5,8 +5,8 @@
     username: Exemplo
     password: BataT@
     auto_attach: true
-    server_proxy_hostname: {{ PROXYSERVER }}
-    server_proxy_port: {{ PROXYPORT }}
+    server_proxy_hostname: "{{ PROXYSERVER }}"
+    server_proxy_port: "{{ PROXYPORT }}"
   when: ( ansible_distribution == "RedHat" )
   register: REDHATREGISTRADO
 

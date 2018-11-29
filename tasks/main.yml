@@ -9,7 +9,7 @@
   import_tasks: config2time.yml
   when: ( ansible_system == "Linux" )
 
-- name: Aplicando Parametros Sysctl
+- name: Aplicando Parametros sysctl.conf
   import_tasks: config2sysctl.yml
   when: ( ansible_system == "Linux" )
 
@@ -55,5 +55,9 @@
 
 - name: Configurarando /etc/sudoers 
   import_tasks: config2sudo.yml
+  when: ( ansible_system == "Linux" )
+
+- name: Configurarando SNMP 
+  import_tasks: config2snmp.yml
   when: ( ansible_system == "Linux" )  
 ...

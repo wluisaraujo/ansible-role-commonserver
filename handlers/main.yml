@@ -1,21 +1,36 @@
 ---
 # handlers file for common-server
- - name: restart rsyslog
-   service: name=rsyslog state=restarted
-
- - name: restart sshd
-   service: name=sshd state=restarted
-   when: ansible_os_family == 'RedHat'
-
- - name: restart ssh
-   service: name=ssh state=restarted
-   when: ansible_os_family == 'Debian'
-
- - name: restart snmpd
-   service: name=snmpd state=restarted
-
-- name: restart systemd2ovirt-guest-agent
-- systemd:
+- name: restart rsyslog
+  service: 
+    name: rsyslog 
     state: restarted
-    name:  ovirt-guest-agent.service     
+#
+# - name: restart sshd
+#   service: name=sshd state=restarted
+#   when: ansible_os_family == 'RedHat'
+#
+# - name: restart ssh
+#   service: name=ssh state=restarted
+#   when: ansible_os_family == 'Debian'
+#
+# - name: restart snmpd
+#   service: name=snmpd state=restarted
+#
+# - name: restart systemd2ovirt-guest-agent
+#     systemd:
+#    state: restarted
+#    name:  ovirt-guest-agent.service
+#
+# - name: start snmpd
+#   service:
+#     name: snmpd
+#     state: started
+#   when: ( ansible_os_family == 'RedHat'  )
+#
+- name: enable snmpd at boot
+  service:
+    name: snmpd
+    enabled: yes
+#  when: ( ansible_os_family == 'RedHat'  )
+#  ansible_os_family == 'RedHat' and ansible_distribution_major_version == "7"   
 ...   

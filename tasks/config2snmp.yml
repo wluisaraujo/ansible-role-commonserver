@@ -1,0 +1,52 @@
+---
+- name: Install the latest version of SNMPD
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - net-snmp
+    - net-snmp-utils
+  notify: 
+    - enable snmpd at boot  
+  when: ( ansible_distribution == "CentOS" and YUM2PROXY is success )
+  register: SNMPINSTALADO
+
+- name: Install the latest version of SNMPD
+  apt: 
+    name: {{ item }}
+    state: installed 
+    update_cache: true
+  with_items:
+    - snmp
+  notify:
+    - enable snmpd at boot  
+  when: ( ansible_os_family == "Debian" APT2PROXY is success )
+  register: SNMPINSTALADO
+
+#- name: Instala serviço do snmp (Base RedHat)
+#  yum: pkg=net-snmp state=installed
+#  when: (ansible_os_family == "CentOS") or
+#        (ansible_os_family == "RedHat")
+#  register: snmp_installed
+#  notify:
+#    - Start snmpd
+#
+#
+#- name: Define o arquivo de configuracao do servidor snmp
+#  when: snmp_installed|success
+#  copy: src=snmpd.conf dest=/etc/snmp/snmpd.conf owner=root group=root mode=0640
+#  notify:
+#    - Restart snmpd
+#
+#
+#- name: configure snmpv3
+#  shell: net-snmp-create-v3-user -ro -A P@ssw0rd -a MD5 -X P@ssw0rd -x DES solarwinds.noc
+#  notify: restart snmpd
+#  when: ( SNMPINSTALADO is success )
+...
+
+
+
+
+
+
