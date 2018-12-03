@@ -1,3 +1,4 @@
+---
 - name: "Install required packages (RedHat)"
   yum:
     name: "{{ item }}"
@@ -46,3 +47,4 @@
     shell: /etc/init.d/clamd restart
     when: ansible_distribution == 'RedHat'
     ignore_errors: yes
+...

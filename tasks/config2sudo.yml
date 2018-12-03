@@ -52,18 +52,11 @@
     mode: 0440
     validate: '/usr/sbin/visudo -cf %s'
   with_items:
-    - { checkreg: '^%wheel',                    
-        insertline: '%wheel  ALL=(ALL:ALL) ALL'                     }
-    - { checkreg: '^%sudo',                     
-        insertline: '%sudo   ALL=(ALL:ALL) ALL'                     }
-    - { checkreg: '^%backup',            
-        insertline: '%backup  ALL=(ALL:ALL) ALL'                    }
-    - { checkreg: '^%dba',               
-        insertline: '%dba  ALL=(ALL:ALL) ALL'                       }
-    - { checkreg: '^%operacao',          
-        insertline: '%operacao  ALL=(ALL:ALL) ALL'                  }
-    - { checkreg: '^%helpdesk',         
-        insertline: '%helpdesk ALL = HELPDESK'                      }
-    - { checkreg: '^%suporte',         
-        insertline: '%suporte ALL = HELPDESK, SUPORTE'              }
+    - { checkreg: '^%wheel', insertline: '%wheel  ALL=(ALL:ALL) ALL' }
+    - { checkreg: '^%sudo', insertline: '%sudo   ALL=(ALL:ALL) ALL' }
+    - { checkreg: '^%backup', insertline: '%backup  ALL=(ALL:ALL) ALL' }
+    - { checkreg: '^%dba', insertline: '%dba  ALL=(ALL:ALL) ALL' }
+    - { checkreg: '^%operacao', insertline: '%operacao  ALL=(ALL:ALL) ALL' }
+    - { checkreg: '^%helpdesk', insertline: '%helpdesk ALL = HELPDESK' }
+    - { checkreg: '^%suporte',insertline: '%suporte ALL = HELPDESK, SUPORTE' }
 ...

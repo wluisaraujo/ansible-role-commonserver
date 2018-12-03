@@ -6,9 +6,9 @@
     
 - systemd:
     state: stopped
-    name:  firewalld.service     
+    name: firewalld.service     
     enabled: no
-    masked : yes
+    masked: yes
     force: yes
   ignore_errors: yes  
 ...
