@@ -24,11 +24,10 @@
   lineinfile:
     path: /etc/sudoers
     state: present
-    #regexp: '{{ item.checkconf }}'     
     line: '{{ item.insertconf }}'
     owner: root
     group: root
-    mode: '0440'
+    mode: 0440
     validate: '/usr/sbin/visudo -cf %s'
   with_items:
     - { checkconf: '^Defaults	logfile', insertconf: 'Defaults	logfile="/var/log/sudo.log"' }
