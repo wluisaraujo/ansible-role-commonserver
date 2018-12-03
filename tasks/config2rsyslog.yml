@@ -21,3 +21,4 @@
 
     with_items:
       - '*.* @@audit.{{ MEUDOMINIO }}:514'
+...

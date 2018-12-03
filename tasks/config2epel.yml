@@ -28,3 +28,4 @@
    baseurl: http://mirror.globo.com/epel//$releasever/$basearch/
 #   gpgcheck: no
   when: ansible_os_family == 'RedHat'
+...

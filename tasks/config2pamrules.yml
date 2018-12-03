@@ -10,6 +10,5 @@
 #    domain: "*"
 #    limit_type: hard
 #    limit_item: core
-#    value: 0
-    
+#    value: 0 
 ...
