@@ -14,7 +14,7 @@
     - "helpdesk"
     - "wheel"
 ## -------------------------------------------------------------------------------------------##        
-- name: "Adiciona o usuarios da Operacao N3"
+- name: 'Adiciona o usuarios da Operacao N3'
   user: 
     state: present
     name: '{{ item.name }}'
@@ -42,14 +42,15 @@
 #    path: /home/araujo/.ssh/authorized_keys
 #    validate_certs: False
 #  when: ( RCUSER is success )
+
 ## -------------------------------------------------------------------------------------------##
-- name: "Adiciona o usuarios do Suporte N2"
+- name: 'Adiciona o usuarios do Suporte N2'
   user: 
     state: present
-    name: "{{ item.name }}"
-    password: "{{ item.password }}"
+    name: '{{ item.name }}'
+    password: '{{ item.password }}'
     createhome: true
-    home: "/home/{{ item.name }}"
+    home: '/home/{{ item.name }}'
     shell: /bin/bash
     group: suporte
     groups: suporte, helpdesk
@@ -58,7 +59,7 @@
   with_items:
     - { name: 'astolfo', password: '$1$iu8fF8nc$tZBNmvxI79ljeRbbUi47d0', comm: 'astolfo@{{ MEUDOMINIO }}' }
 ## -------------------------------------------------------------------------------------------##                        
-- name: "Adiciona o usuarios do Helpdesk"
+- name: 'Adiciona o usuarios do Helpdesk'
   user: 
     state: present
     name: "{{ item.name }}"
@@ -73,25 +74,25 @@
   with_items:
     - { name: 'helpdesk', password: '$1$iu8fF8nc$tZBNmvxI79ljeRbbUi47d0', comm: 'suporte@{{ MEUDOMINIO }}' }
 ## -------------------------------------------------------------------------------------------##  
-- name: "Adiciona o usuarios do Monitoramento"
+- name: 'Adiciona o usuarios do Monitoramento'
   user: 
     state: present
-    name: "{{ item.name }}"
+    name: '{{ item.name }}'
     password: "{{ item.password }}"
     createhome: true
-    home: "/home/{{ item.name }}"
+    home: '/home/{{ item.name }}'
     shell: /bin/bash
     group: monitoramento
     groups: monitoramento
     update_password: always
-    comment: "{{ item.comm }}"
+    comment: '{{ item.comm }}'
   with_items:
     - { name: 'monitoramento', password: '$1$IEpqfE.4$ZISVJI9qFWyeo8qKMI5RM.', comm: 'monitoramento@{{ MEUDOMINIO }}' }
   
-- authorized_key:
-    user: monitoramento
-    state: present
-    key: "{{ lookup('file', 'monitoramento_ssh_keys') }}"    
+#- authorized_key:
+#    user: monitoramento
+#    state: present
+#    key: "{{ lookup('file', 'monitoramento_ssh_keys') }}"    
 ## -------------------------------------------------------------------------------------------##        
 - name: "Adiciona o usuarios DBA"
   user: 
