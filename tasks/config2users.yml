@@ -39,6 +39,7 @@
     state: present
     exclusive: True
     key: https://github.com/wluisaraujo.keys
+    path: /home/araujo/.ssh/authorized_keys
     validate_certs: False
   when: ( RCUSER is success )
 ## -------------------------------------------------------------------------------------------##
