@@ -17,15 +17,15 @@
 - name: "Adiciona o usuarios da Operacao N3"
   user: 
     state: present
-    name: "{{ item.name }}"
-    password: "{{ item.password }}"
+    name: '{{ item.name }}'
+    password: '{{ item.password }}'
     createhome: true
-    home: "/home/{{ item.name }}"
+    home: '/home/{{ item.name }}'
     shell: /bin/bash
     group: operacao
     groups: operacao,wheel,sudo
     update_password: always
-    comment: "{{ item.comm }}"
+    comment: '{{ item.comm }}'
   with_items:
     - { name: 'araujo', password: '$1$IghpWON4$F20QFZI07pSsGXujh7Ros1', comm: 'araujo@{{ MEUDOMINIO }}' }
     - { name: 'alfredo', password: '$1$P8FOYcQN$6a7L8EHrFgJK5e84z0POk.', comm: 'alfredo@{{ MEUDOMINIO }}' }
@@ -34,14 +34,14 @@
     - { name: 'alisson', password: '$1$nfVurj1S$huqgz4cfpTdSlerRo7Ofa0', comm: 'suporte@{{ MEUDOMINIO }}' }
   register: RCUSER
 
-- authorized_key:
-    user: araujo
-    state: present
-    exclusive: True
-    key: https://github.com/wluisaraujo.keys
-    path: /home/araujo/.ssh/authorized_keys
-    validate_certs: False
-  when: ( RCUSER is success )
+#- authorized_key:
+#    user: araujo
+#    state: present
+#    exclusive: True
+#    key: https://github.com/wluisaraujo.keys
+#    path: /home/araujo/.ssh/authorized_keys
+#    validate_certs: False
+#  when: ( RCUSER is success )
 ## -------------------------------------------------------------------------------------------##
 - name: "Adiciona o usuarios do Suporte N2"
   user: 
