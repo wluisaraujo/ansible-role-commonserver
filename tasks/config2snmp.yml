@@ -44,9 +44,3 @@
 #  notify: restart snmpd
 #  when: ( SNMPINSTALADO is success )
 ...
-
-
-
-
-
-

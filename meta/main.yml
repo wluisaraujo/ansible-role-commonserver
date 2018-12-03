@@ -20,8 +20,9 @@ galaxy_info:
      - 7
    - name: Debian
      versions:
-     - 8
-     - 9
+     - stretch
+     - jessie
+     - wheezy
 
   galaxy_tags:
      - server 

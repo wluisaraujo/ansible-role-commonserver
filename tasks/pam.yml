@@ -1,72 +1,74 @@
-Para RHEL:
-
-Alterar o arquivo /etc/pam.d/system-auth para conter:
-
-password    requisite     pam_cracklib.so try_first_pass retry=3 difok=4 lcredit=-1 ucredit=-1 dcredit=-1 ocredit=0
-
-Para Debian/Ubuntu:
-
-Alterar o arquivo /etc/pam.d/common-password para conter:
-
-password    requisite     pam_cracklib.so try_first_pass retry=3 difok=4 lcredit=-1 ucredit=-1 dcredit=-1 ocredit=0
-
-##
-Alterar o arquivo /etc/login.defs para conter:
-
-PASS_MIN_LEN 8
-
-No caso de sistemas Debian / Ubuntu, alterar o arquivo /etc/pam.d/common-password para conter a configuração "minlen=8". Exemplo:
-
-password   required   pam_unix.so nullok obscure minlen=8 md5
-
-Atentar para adicionar apenas o parâmetro minlen, e manter os demais parâmetros sem alteração. 
-
+...
+#Para RHEL:
 #
-Alterar o arquivo /etc/pam.d/su para conter:
-
-auth       required     /lib/security/pam_wheel.so group=wheel use_uid
-
-Incluir cada um dos usuários autorizados ao grupo wheel
-
-E sistemas Slackware, alterar o arquivo /etc/login.defs para conter: SU_WHEEL_ONLY yes
-
-Incluir cada um dos usuários autorizados ao grupo root.
-
-
-Alterar o arquivo /etc/pam.d/common-password para conter:
-
-password    requisite     pam_cracklib.so try_first_pass retry=3 difok=4 lcredit=-1 ucredit=-1 dcredit=-1 ocredit=0
-
-
-Para RHEL 7.x e superiores:
-Alterar o arquivo /etc/pam.d/system-auth e /etc/pam.d/password-auth para conter:
-
-auth required pam_faillock.so preauth silent audit deny=3 unlock_time=60
-auth  [default=die] pam_faillock.so authfail audit deny=3 unlock_time=60
-account  required pam_faillock.so
-
-Para RHEL 6.x:
-Alterar o arquivo /etc/pam.d/password-auth para conter:
-
-auth required pam_tally2.so magic_root deny=3 quiet unlock_time=60
-account required pam_tally2.so
-
-Para RHEL 5.x:
-Alterar o arquivo /etc/pam.d/system-auth para conter:
-
-auth required pam_tally2.so magic_root deny=3 quiet unlock_time=60
-account required pam_tally2.so
-
-Para RHEL 4.x e anteriores:
-
-auth required pam_tally.so onerr=fail deny=3
-account required pam_tally.so reset
-
-Para Debian/Ubuntu:
-Alterar o arquivo /etc/pam.d/common-auth para conter:
-
-auth required pam_tally2.so onerr=fail deny=3 no_magic_root unlock_time=60
-
-E no arquivo /etc/pam.d/common-account para conter:
-
-account required pam_tally2.so onerr=fail no_magic_root
+#Alterar o arquivo /etc/pam.d/system-auth para conter:
+#
+#password    requisite     pam_cracklib.so try_first_pass retry=3 difok=4 lcredit=-1 ucredit=-1 dcredit=-1 ocredit=0
+#
+#Para Debian/Ubuntu:
+#
+#Alterar o arquivo /etc/pam.d/common-password para conter:
+#
+#password    requisite     pam_cracklib.so try_first_pass retry=3 difok=4 lcredit=-1 ucredit=-1 dcredit=-1 ocredit=0
+#
+##
+#Alterar o arquivo /etc/login.defs para conter:
+#
+#PASS_MIN_LEN 8
+#
+#No caso de sistemas Debian / Ubuntu, alterar o arquivo /etc/pam.d/common-password para conter a configuração "minlen=8". Exemplo:
+#
+#password   required   pam_unix.so nullok obscure minlen=8 md5
+#
+#Atentar para adicionar apenas o parâmetro minlen, e manter os demais parâmetros sem alteração. 
+#
+#
+#Alterar o arquivo /etc/pam.d/su para conter:
+#
+#auth       required     /lib/security/pam_wheel.so group=wheel use_uid
+#
+#Incluir cada um dos usuários autorizados ao grupo wheel
+#
+#E sistemas Slackware, alterar o arquivo /etc/login.defs para conter: SU_WHEEL_ONLY yes
+#
+#Incluir cada um dos usuários autorizados ao grupo root.
+#
+#
+#Alterar o arquivo /etc/pam.d/common-password para conter:
+#
+#password    requisite     pam_cracklib.so try_first_pass retry=3 difok=4 lcredit=-1 ucredit=-1 dcredit=-1 ocredit=0
+#
+#
+#Para RHEL 7.x e superiores:
+#Alterar o arquivo /etc/pam.d/system-auth e /etc/pam.d/password-auth para conter:
+#
+#auth required pam_faillock.so preauth silent audit deny=3 unlock_time=60
+#auth  [default=die] pam_faillock.so authfail audit deny=3 unlock_time=60
+#account  required pam_faillock.so
+#
+#Para RHEL 6.x:
+#Alterar o arquivo /etc/pam.d/password-auth para conter:
+#
+#auth required pam_tally2.so magic_root deny=3 quiet unlock_time=60
+#account required pam_tally2.so
+#
+#Para RHEL 5.x:
+#Alterar o arquivo /etc/pam.d/system-auth para conter:
+#
+#auth required pam_tally2.so magic_root deny=3 quiet unlock_time=60
+#account required pam_tally2.so
+#
+#Para RHEL 4.x e anteriores:
+#
+#auth required pam_tally.so onerr=fail deny=3
+#account required pam_tally.so reset
+#
+#Para Debian/Ubuntu:
+#Alterar o arquivo /etc/pam.d/common-auth para conter:
+#
+#auth required pam_tally2.so onerr=fail deny=3 no_magic_root unlock_time=60
+#
+#E no arquivo /etc/pam.d/common-account para conter:
+#
+##account required pam_tally2.so onerr=fail no_magic_root
+...

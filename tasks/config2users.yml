@@ -28,11 +28,11 @@
     update_password: always
     comment: "{{ item.comm }}"
   with_items:
-    - { name: 'araujo',     password: '$1$IghpWON4$F20QFZI07pSsGXujh7Ros1',   comm: 'araujo@{{ MEUDOMINIO }}'   }
-    - { name: 'alfredo',    password: '$1$P8FOYcQN$6a7L8EHrFgJK5e84z0POk.',   comm: 'alfredo@{{ MEUDOMINIO }}'  }
-    - { name: 'tominaga',   password: '$1$Q5JyJUPb$JcR7aHJqLIR7WztMhwH6l/',   comm: 'tominaga@{{ MEUDOMINIO }}' }
-    - { name: 'manzano',    password: '$1$nfVurj1S$huqgz4cfpTdSlerRo7Ofa0',   comm: 'manzano@{{ MEUDOMINIO }}'  }
-    - { name: 'alisson',    password: '$1$nfVurj1S$huqgz4cfpTdSlerRo7Ofa0',   comm: 'suporte@{{ MEUDOMINIO }}'  }
+    - { name: 'araujo', password: '$1$IghpWON4$F20QFZI07pSsGXujh7Ros1', comm: 'araujo@{{ MEUDOMINIO }}' }
+    - { name: 'alfredo', password: '$1$P8FOYcQN$6a7L8EHrFgJK5e84z0POk.', comm: 'alfredo@{{ MEUDOMINIO }}' }
+    - { name: 'tominaga', password: '$1$Q5JyJUPb$JcR7aHJqLIR7WztMhwH6l/', comm: 'tominaga@{{ MEUDOMINIO }}' }
+    - { name: 'manzano', password: '$1$nfVurj1S$huqgz4cfpTdSlerRo7Ofa0', comm: 'manzano@{{ MEUDOMINIO }}' }
+    - { name: 'alisson', password: '$1$nfVurj1S$huqgz4cfpTdSlerRo7Ofa0', comm: 'suporte@{{ MEUDOMINIO }}' }
   register: RCUSER
 
 - authorized_key:
@@ -56,7 +56,7 @@
     update_password: always
     comment: "{{ item.comm }}"
   with_items:
-    - { name: 'astolfo', password: '$1$iu8fF8nc$tZBNmvxI79ljeRbbUi47d0',    comm: 'astolfo@{{ MEUDOMINIO }}' }
+    - { name: 'astolfo', password: '$1$iu8fF8nc$tZBNmvxI79ljeRbbUi47d0', comm: 'astolfo@{{ MEUDOMINIO }}' }
 ## -------------------------------------------------------------------------------------------##                        
 - name: "Adiciona o usuarios do Helpdesk"
   user: 
@@ -71,7 +71,7 @@
     update_password: always
     comment: "{{ item.comm }}"
   with_items:
-    - { name: 'helpdesk',   password: '$1$iu8fF8nc$tZBNmvxI79ljeRbbUi47d0', comm: 'suporte@{{ MEUDOMINIO }}' }
+    - { name: 'helpdesk', password: '$1$iu8fF8nc$tZBNmvxI79ljeRbbUi47d0', comm: 'suporte@{{ MEUDOMINIO }}' }
 ## -------------------------------------------------------------------------------------------##  
 - name: "Adiciona o usuarios do Monitoramento"
   user: 
@@ -106,8 +106,8 @@
     update_password: always
     comment: "{{ item.comm }}"
   with_items:
-    - { name: 'pateta',   password: '$1$u9hDDkXi$JgEf2668EraOPEk1Hz7BU1', comm: 'pateta@{{ MEUDOMINIO }}' }
-    - { name: 'donald',   password: '$1$ZUPXxQ7z$Hu/awnrxWez7OXhRVTAaI/', comm: 'donald@{{ MEUDOMINIO }}' }
+    - { name: 'pateta', password: '$1$u9hDDkXi$JgEf2668EraOPEk1Hz7BU1', comm: 'pateta@{{ MEUDOMINIO }}' }
+    - { name: 'donald', password: '$1$ZUPXxQ7z$Hu/awnrxWez7OXhRVTAaI/', comm: 'donald@{{ MEUDOMINIO }}' }
 ## -------------------------------------------------------------------------------------------##            
 - name: "Adiciona o usuarios Backup"
   user: 
@@ -122,6 +122,6 @@
     update_password: always
     comment: "{{ item.comm }}"
   with_items:
-    - { name: 'backup',   password: '$1$Xh26LNXw$uMNxai0q5XWP2PqtyLNxv1', comm: 'backup@{{ MEUDOMINIO }}' }
+    - { name: 'backup', password: '$1$Xh26LNXw$uMNxai0q5XWP2PqtyLNxv1', comm: 'backup@{{ MEUDOMINIO }}' }
     - { name: 'urameshi', password: '$1$iu8fF8nc$tZBNmvxI79ljeRbbUi47d0', comm: 'urameshi@{{ MEUDOMINIO }}' }
 ...
