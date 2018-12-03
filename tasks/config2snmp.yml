@@ -14,10 +14,11 @@
 
 - name: 'Install the latest version of SNMPD'
   apt: 
-    name: {{ item }}
+    name: '{{ item }}'
     state: installed 
     update_cache: true
   with_items:
+    - snmp
     - snmpd
   notify:
     - enable snmpd at boot  
