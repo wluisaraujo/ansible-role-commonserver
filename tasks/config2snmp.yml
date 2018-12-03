@@ -18,8 +18,8 @@
     state: installed 
     update_cache: true
   with_items:
-    - snmp
-    - snmpd
+    - 'snmp'
+#    - "snmpd"
   notify:
     - enable snmpd at boot  
   when: ( ansible_os_family == "Debian" APT2PROXY is success )
