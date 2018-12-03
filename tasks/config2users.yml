@@ -120,7 +120,6 @@
     home: '/home/{{ item.name }}'
     shell: /bin/bash
     group: backup
-    groups: backup,wheel,sudo
     update_password: always
     comment: '{{ item.comm }}'
   with_items:
