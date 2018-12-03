@@ -1,5 +1,5 @@
 ---
-## tasks file for common-server
+### tasks file for common-server
 - yum:
     name: sudo
     state: present
@@ -20,22 +20,22 @@
   when: ( ansible_os_family == "Suse" )
   register: SUDOINSTALLED
 
-- name: "Habilitando configuracoes do SUDO"
+- name: 'Habilitando configuracoes do SUDO'
   lineinfile:
     path: /etc/sudoers
     state: present
     #regexp: '{{ item.checkconf }}'     
-    line: "{{ item.insertconf }}"
+    line: '{{ item.insertconf }}'
     owner: root
     group: root
-    mode: 0440
+    mode: '0440'
     validate: '/usr/sbin/visudo -cf %s'
   with_items:
     - { checkconf: '^Defaults	logfile', insertconf: 'Defaults	logfile="/var/log/sudo.log"' }
-    - { checkconf: '^Cmnd_Alias	logfile', insertconf: 'Cmnd_Alias HELPDESK = /usr/bin/systemctl * snmpd, /bin/systemctl * snmpd, /sbin/service snmpd *, /usr/sbin/service snmpd * ' }
-    - { checkconf: '^Cmnd_Alias	logfile', insertconf: 'Cmnd_Alias SUPORTE = /usr/bin/systemctl * apache2, /bin/systemctl * apache2, /sbin/service apache2 *, /usr/sbin/service apache2 *, /usr/bin/systemctl * httpd, /bin/systemctl * httpd, /sbin/service httpd *, /usr/sbin/service httpd * ' }
+    - { checkconf: '^Cmnd_Alias	logfile', insertconf: 'Cmnd_Alias HELPDESK = /usr/bin/systemctl * snmpd, /bin/systemctl * snmpd, /sbin/service snmpd *, /usr/sbin/service snmpd *' }
+    - { checkconf: '^Cmnd_Alias	logfile', insertconf: 'Cmnd_Alias SUPORTE = /usr/bin/systemctl * apache2, /bin/systemctl * apache2, /sbin/service apache2 *, /usr/sbin/service apache2 *, /usr/bin/systemctl * httpd, /bin/systemctl * httpd, /sbin/service httpd *, /usr/sbin/service httpd *' }
   
-- name: "Habilitando grupos no SUDO"
+- name: 'Habilitando grupos no SUDO'
   lineinfile: 
     path: /etc/sudoers
     state: present
