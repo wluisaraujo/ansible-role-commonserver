@@ -1,7 +1,8 @@
 ---
-- name: Install the latest version of SNMPD
+##
+- name: 'Install the latest version of SNMPD'
   yum:
-    name: "{{ item }}"
+    name: '{{ item }}'
     state: latest
   with_items:
     - net-snmp
@@ -11,13 +12,13 @@
   when: ( ansible_distribution == "CentOS" and YUM2PROXY is success )
   register: SNMPINSTALADO
 
-- name: Install the latest version of SNMPD
+- name: 'Install the latest version of SNMPD'
   apt: 
     name: {{ item }}
     state: installed 
     update_cache: true
   with_items:
-    - snmp
+    - snmpd
   notify:
     - enable snmpd at boot  
   when: ( ansible_os_family == "Debian" APT2PROXY is success )
