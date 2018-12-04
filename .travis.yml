@@ -7,6 +7,10 @@ sudo: true
 
 # This playbook need to run on Ubuntu 14.04 or later
 dist: trust
+
+services:
+ - docker
+
 #
 env:
  - distribution: centos
