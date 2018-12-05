@@ -29,7 +29,11 @@ env:
    version: stretch
  - distribution: debian
    version: jessie
-    
+ 
+env:
+  global:
+    - ANSIBLE_HOST_KEY_CHECKING="False"
+ 
 # Install ansible
 addons:
  apt:
