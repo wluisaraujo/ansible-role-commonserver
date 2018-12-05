@@ -13,6 +13,7 @@ services:
 
 #
 env:
+ - global: ANSIBLE_HOST_KEY_CHECKING="False"
  - distribution: centos
    version: 7
  - distribution: fedora
@@ -29,10 +30,9 @@ env:
    version: stretch
  - distribution: debian
    version: jessie
- 
-env:
-  global:
-    - ANSIBLE_HOST_KEY_CHECKING="False"
+# env:
+#  global:
+#    - ANSIBLE_HOST_KEY_CHECKING="False"
  
 # Install ansible
 addons:
