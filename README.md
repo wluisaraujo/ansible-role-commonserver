@@ -6,31 +6,43 @@ iac-ansible-common-server
 
 Ajusta configurações de sistemas Linux, seguindo boas práticas ;)
 
-- base-centos.yml
+- config2base-CentOS.yml
+    
+- config2base-Debian.yml
 
-- base-debian.yml
+- config2base-Ubuntu.yml
 
-- base-redhat.yml
+- config2clamav.yml
 
-- clamav.yml
+- config2environment.yml
+
+- config2epel.yml
+
+- config2files.yml
+
+- config2guestagent.yml
+
+- config2pamrules.yml
+
+- config2rsyslog.yml
+
+- config2snmp.yml
 
 - config2sudo.yml
 
-- epel.yml
+- config2time.yml
 
-- files.yml
+- config2users.yml
 
-- linux-environment.yml 
+- package-base-CentOS.yml
 
-- pamlimits.yml 
+- package-base-Debian.yml
 
-- rsyslog.yml
+- package-base-RedHat.yml
 
-- snmpd.yml 
+- package-base-Ubuntu.yml
 
-- sysctl.yml 
-
-- timezone.yml
+- unconfig2users.yml
 
 Variaveis
 ------------
