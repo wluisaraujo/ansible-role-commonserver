@@ -1,4 +1,6 @@
 ---
 # tasks file for iac-ansible-common-server
 
-- name: Aplicando configurações em "{{ ansible_distribution }}" versão "{{ ansible_distribution_major_version }}"
+- name: "Aplicando configurações em {{ ansible_distribution }} versão {{ ansible_distribution_major_version }}"
+  shell: echo
+...
