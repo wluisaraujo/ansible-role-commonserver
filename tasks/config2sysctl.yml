@@ -3,9 +3,9 @@
 - name: Adicionando parametros no SYSCTL
 # 
   sysctl:
-    name: "{{ item.name }}"
+    name: '{{ item.name }}'
     state: present
-    value: "{{ item.value }}"
+    value: '{{ item.value }}'
     sysctl_file: /etc/sysctl.conf
     sysctl_set: yes
     reload: yes
@@ -29,5 +29,5 @@
     - { name: 'net.ipv6.conf.all.disable_ipv6', value: '0' }
     - { name: 'kernel.randomize_va_space', value: '2' }
     - { name: 'vm.drop_caches', value: '3' }
-    - { name: 'vm.swappiness', value: '10'}
+    - { name: 'vm.swappiness', value: '10' }
 ...
