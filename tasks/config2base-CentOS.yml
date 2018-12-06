@@ -11,5 +11,7 @@
     masked: yes
     force: yes
   ignore_errors: yes
-  when: ( ansible_distribution == "CentOS" and YUM2PROXY is success)
+  when: 
+    - ansible_distribution == "CentOS" 
+    - YUM2PROXY is success
 ...

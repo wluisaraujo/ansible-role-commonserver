@@ -1,10 +1,8 @@
 ---
 # tasks file for iac-ansible-common-server
 
-- selinux:
-    state: disabled
-    
-- yum: 
+- name: Instalar pacotes para o "{{ ansible_distribution }}" versão "{{ ansible_distribution_major_version }}"   
+  yum: 
     name: "{{ item }}"
     state: latest 
   with_items:
@@ -32,5 +30,7 @@
     - zip
     - wget
   register: PACKAGE    
-  when: ( ansible_distribution == "CentOS" and YUM2PROXY is success)
+  when: 
+    - ansible_distribution == "CentOS" 
+    - YUM2PROXY is success
 ...
