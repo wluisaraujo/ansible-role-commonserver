@@ -18,6 +18,7 @@ galaxy_info:
    - name: EL
      versions:
      - 7
+
    - name: Debian
      versions:
      - stretch
