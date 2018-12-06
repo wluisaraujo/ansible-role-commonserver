@@ -12,18 +12,10 @@
 - name: Aplicando Parametros sysctl.conf
   import_tasks: config2sysctl.yml
   when: ( ansible_system == "Linux" )
-
-- name: Instalando pacotes (Sistemas Debian)
-  import_tasks: package-base-debian.yml
-  when: ( ansible_os_family == "Debian" and APT2PROXY is success ) 
-
-- name: Instalando pacotes (Sistemas CentOS)
-  import_tasks: package-base-centos.yml
-  when: ( ansible_distribution == "CentOS" and YUM2PROXY is success)
-
-- name: Instalando pacotes (Sistemas Redhat)
-  import_tasks: package-base-redhat.yml
-  when: ( ansible_distribution == "RedHat" and YUM2PROXY is success and REDHATREGISTRADO is success )
+##############################################################
+- name: Importando tarefas para configuracoes de pacotes
+  include_tasks: package-base-{{ ansible_distribution }}.yml
+##############################################################
 
 - name: Registrando sistemas Redhat)
   import_tasks: config2redhatregister.yml
@@ -33,9 +25,8 @@
   import_tasks: config2guestagent.yml
   when: ( ansible_system == "Linux" and PACKAGE is success)  
 
-- name: Aplicando configuracoes para (Sistemas CentOS)
-  import_tasks: config2base-centos.yml
-  when: ( ansible_distribution == "CentOS" and YUM2PROXY is success)
+- name: Aplicando configuracoes para {{ ansible_distribution }}
+  include_tasks: config2base-{{ ansible_distribution }}.yml
 
 - name: Copiando arquivos
   import_tasks: config2files.yml

@@ -1,26 +1,25 @@
 ---
 # tasks file for iac-ansible-common-server
 
-- selinux:
-    state: disabled
-    
-- yum: 
-    name: "{{ item }}"
+- name: Instalar pacotes base (OS base Debian)
+  apt: 
+    name: "{{ item }}" 
     state: latest 
+    update_cache: true
   with_items:
     - bash-completion
-    - bash-completion-extras
-    - bind-utils
     - bzip2
-    - cifs-utils
+    - chrony
     - curl
-    - epel-release
+    - cifs-utils
+    - dnsutils
     - finger
     - htop
     - lsof
     - mlocate
-    - nfs-utils
+    - nfs-common
     - nmap
+    - net-tools
     - screen
     - sudo
     - sysstat
@@ -29,7 +28,8 @@
     - tzdata
     - unzip
     - vim
-    - zip
     - wget
-  register: PACKAGE    
+    - zip
+  register: DEBIANPACKAGE
+  when: ( ansible_os_family == "Debian" and APT2PROXY is success )
 ...

@@ -5,7 +5,7 @@
     state: disabled
     
 - yum: 
-    name: "{{ item }}" 
+    name: "{{ item }}"
     state: latest 
   with_items:
     - bash-completion
@@ -14,6 +14,7 @@
     - bzip2
     - cifs-utils
     - curl
+    - epel-release
     - finger
     - htop
     - lsof
@@ -30,6 +31,6 @@
     - vim
     - zip
     - wget
-  register: PACKAGE
-  when: ( REDHATREGISTRADO is success )    
+  register: PACKAGE    
+  when: ( ansible_distribution == "CentOS" and YUM2PROXY is success)
 ...

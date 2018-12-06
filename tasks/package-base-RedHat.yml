@@ -1,25 +1,25 @@
 ---
 # tasks file for iac-ansible-common-server
 
-- name: Instalar pacotes base (OS base Debian)
-  apt: 
+- selinux:
+    state: disabled
+    
+- yum: 
     name: "{{ item }}" 
     state: latest 
-    update_cache: true
   with_items:
     - bash-completion
+    - bash-completion-extras
+    - bind-utils
     - bzip2
-    - chrony
-    - curl
     - cifs-utils
-    - dnsutils
+    - curl
     - finger
     - htop
     - lsof
     - mlocate
-    - nfs-common
+    - nfs-utils
     - nmap
-    - net-tools
     - screen
     - sudo
     - sysstat
@@ -28,7 +28,11 @@
     - tzdata
     - unzip
     - vim
-    - wget
     - zip
-  register: DEBIANPACKAGE
+    - wget
+  register: PACKAGE
+  when: 
+    - ansible_distribution == "RedHat" 
+    - YUM2PROXY is success 
+    - REDHATREGISTRADO is success
 ...

@@ -10,5 +10,6 @@
     enabled: no
     masked: yes
     force: yes
-  ignore_errors: yes  
+  ignore_errors: yes
+  when: ( ansible_distribution == "CentOS" and YUM2PROXY is success)
 ...
