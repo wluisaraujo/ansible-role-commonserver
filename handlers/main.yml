@@ -36,9 +36,9 @@
 
 #- Start Tuned
 #    systemd:
-#    state: started
-#    name: tuned.service
-#    enabled: yes
-#    force: yes
-#    ignore_errors: yes
+#      state: started
+#      name: tuned.service
+#      enabled: yes
+#      force: yes
+#      ignore_errors: yes
 ...
