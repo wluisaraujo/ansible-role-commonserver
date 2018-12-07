@@ -32,5 +32,13 @@
     name: snmpd
     enabled: yes
 #  when: ( ansible_os_family == 'RedHat'  )
-#  ansible_os_family == 'RedHat' and ansible_distribution_major_version == "7"   
-...   
+#  ansible_os_family == 'RedHat' and ansible_distribution_major_version == "7"
+
+- Start Tuned
+    systemd:
+    state: started
+    name: tuned.service
+    enabled: yes
+    force: yes
+    ignore_errors: yes
+...
