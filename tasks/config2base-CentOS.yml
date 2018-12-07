@@ -26,7 +26,7 @@
 #    - PACKAGE is success
 #  register: TUNED
 
-- shell: tuned-adm profile throughput-performance
-  when:
-    - TUNED is success
+#- shell: tuned-adm profile throughput-performance
+#  when:
+#    - TUNED is success
 ...
