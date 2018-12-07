@@ -1,16 +1,14 @@
 ---
 language: python
 python: "2.7"
-
+#
+services: docker
 # Use the new container infrastructure
 sudo: true
-
 # This playbook need to run on Ubuntu 14.04 or later
-dist: trust
+#dist: trust
 
-services:
- - docker
-
+# Vars
 env:
  - global:
      ANSIBLE_ACTION_WARNINGS="False"
@@ -45,8 +43,9 @@ addons:
  packages:
  - python-pip
 
+
 install:
- # Install ansible
+# Install test dependencies / ansible
  - pip install ansible
 
 # Check ansible version
@@ -55,7 +54,6 @@ install:
 # Create ansible.cfg with correct roles_path
  - printf '[defaults]\nroles_path=../' >ansible.cfg
 
-
  # Install ansible-commons
  - ansible-galaxy install wluisaraujo.iac-ansible-common-server
 
@@ -63,7 +61,6 @@ script:
  # Basic role syntax check
  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
  - ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo --check
-
 
 notifications:
  webhooks: https://galaxy.ansible.com/api/v1/notifications/
