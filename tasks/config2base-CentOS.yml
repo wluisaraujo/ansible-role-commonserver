@@ -15,16 +15,16 @@
     - ansible_distribution == "CentOS" 
     - YUM2PROXY is success
     
-- systemd:
-    state: started
-    name: tuned.service
-    enabled: yes
-    force: yes
-  ignore_errors: yes
-  when: 
-    - ansible_distribution == "CentOS" 
-    - PACKAGE is success
-  register: TUNED
+#- systemd:
+#    state: started
+#    name: tuned.service
+#    enabled: yes
+#    force: yes
+#  ignore_errors: yes
+#  when: 
+#    - ansible_distribution == "CentOS" 
+#    - PACKAGE is success
+#  register: TUNED
 
 - shell: tuned-adm profile throughput-performance
   when:
