@@ -1,12 +1,12 @@
+---
 galaxy_info:
   author: w.luis.araujo
-  description: Common Environment Server
+  description: "Common Environment Server"
   company: Personal
   license: (GPLv3)
 
   min_ansible_version: 2
   github_brach: master
-
 
   platforms:
 
@@ -27,9 +27,11 @@ galaxy_info:
 
   galaxy_tags:
      - server 
-     - system 
+     - system
+     - hardening
 
   dependencies: []
 
   categories:
      - Server
+...
