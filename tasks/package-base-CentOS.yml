@@ -30,7 +30,7 @@
     - vim
     - zip
     - wget
-  register: PACKAGE    
+  register: PACKAGE
   when: 
     - ansible_distribution == "CentOS" 
     - YUM2PROXY is success
