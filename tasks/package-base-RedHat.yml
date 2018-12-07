@@ -24,6 +24,7 @@
     - tcpdump
     - tree
     - tzdata
+    - tuned
     - unzip
     - vim
     - zip
