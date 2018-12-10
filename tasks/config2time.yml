@@ -7,22 +7,21 @@
     - chrony
   when: (ansible_os_family == "RedHat")
   register: PACKAGE
-
+  notify:
+    - Start chronyd
+    
 - apt: name={{ item }} state=latest update_cache=yes
   with_items:
     - tzdata
     - chrony
   when: (ansible_os_family == "Debian")
   register: PACKAGE
-
+  notify:
+    - Start chronyd
+    
 - timezone:
         name: America/Sao_Paulo
-
-- systemd:
-    state: started
-    name:  chronyd.service 
-    enabled: yes
-  when: (ansible_os_family == "RedHat") or (ansible_os_family == "Debian") 
+        
 ##
 #- name: Remove Zone Info
 #  file:
