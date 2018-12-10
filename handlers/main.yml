@@ -43,26 +43,17 @@
 #  when: ( ansible_os_family == 'RedHat'  )
 #  ansible_os_family == 'RedHat' and ansible_distribution_major_version == "7"
 
-#- Start Tuned
-#    systemd:
-#      state: started
-#      name: tuned.service
-#      enabled: yes
-#      force: yes
-#      ignore_errors: yes
+- name: "Start Tuned"
+  systemd:
+    state: started
+    name: tuned.service
+    enabled: yes
+    force: yes
+  ignore_errors: yes
+  when: 
+    - ansible_os_family == "RedHat" and ansible_distribution_major_version == "7"
 
-#- systemd:
-#    state: started
-#    name: tuned.service
-#    enabled: yes
-#    force: yes
-#  ignore_errors: yes
-#  when: 
-#    - ansible_distribution == "CentOS" 
-#    - PACKAGE is success
-#  register: TUNED
-
-- name: Disable Firewalld
+- name: "Disable Firewalld"
   systemd:
     state: stopped
     name: firewalld.service     
