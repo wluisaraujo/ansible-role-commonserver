@@ -19,7 +19,7 @@
   with_items:
     - tzdata
     - chrony
-  when: (ansible_os_family == "Debian" and ansible_distribution_major_version == "7")
+  when: ( ansible_os_family == "Debian" and ansible_distribution_major_version == "7" )
   register: PACKAGE
   notify:
     - Start chronyd
