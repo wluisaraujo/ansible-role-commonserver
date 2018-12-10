@@ -4,16 +4,16 @@
 - selinux:
     state: disabled
     
-- systemd:
-    state: stopped
-    name: firewalld.service     
-    enabled: no
-    masked: yes
-    force: yes
-  ignore_errors: yes
-  when: 
-    - ansible_distribution == "CentOS" 
-    - YUM2PROXY is success
+#- systemd:
+#    state: stopped
+#    name: firewalld.service     
+#    enabled: no
+#    masked: yes
+#    force: yes
+#  ignore_errors: yes
+#  when: 
+#    - ansible_distribution == "CentOS" 
+#    - YUM2PROXY is success
     
 #- systemd:
 #    state: started
