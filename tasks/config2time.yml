@@ -1,20 +1,25 @@
 ---
 # tasks file for iac-ansible-common-server
 
-- yum: name={{ item }} state=latest
+- yum: 
+    name: "{{ item }}" 
+    state: latest
   with_items:
     - tzdata
     - chrony
-  when: (ansible_os_family == "RedHat")
+  when: ( ansible_os_family == "RedHat" ansible_distribution_major_version == "7" )
   register: PACKAGE
   notify:
     - Start chronyd
     
-- apt: name={{ item }} state=latest update_cache=yes
+- apt: 
+    name: "{{ item }}" 
+    state: latest 
+    update_cache: yes
   with_items:
     - tzdata
     - chrony
-  when: (ansible_os_family == "Debian")
+  when: (ansible_os_family == "Debian" and ansible_distribution_major_version == "7")
   register: PACKAGE
   notify:
     - Start chronyd
