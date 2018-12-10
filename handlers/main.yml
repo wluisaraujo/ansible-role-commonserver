@@ -43,6 +43,17 @@
 #      ignore_errors: yes
 
 #- systemd:
+#    state: started
+#    name: tuned.service
+#    enabled: yes
+#    force: yes
+#  ignore_errors: yes
+#  when: 
+#    - ansible_distribution == "CentOS" 
+#    - PACKAGE is success
+#  register: TUNED
+
+#- systemd:
 #    state: stopped
 #    name: firewalld.service     
 #    enabled: no
