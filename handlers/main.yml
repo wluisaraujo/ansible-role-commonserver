@@ -62,14 +62,14 @@
 #    - PACKAGE is success
 #  register: TUNED
 
-#- systemd:
-#    state: stopped
-#    name: firewalld.service     
-#    enabled: no
-#    masked: yes
-#    force: yes
-#  ignore_errors: yes
-#  when: 
-#    - ansible_distribution == "CentOS" 
-#    - YUM2PROXY is success
+- name: Disable Firewalld
+  systemd:
+    state: stopped
+    name: firewalld.service     
+    enabled: no
+    masked: yes
+    force: yes
+  ignore_errors: yes
+  when: 
+    - ansible_os_family == "RedHat" and ansible_distribution_major_version == "7" 
 ...
