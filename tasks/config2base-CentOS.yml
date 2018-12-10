@@ -1,32 +1,15 @@
 ---
 # tasks file for iac-ansible-common-server
-
-- selinux:
+- name: "Desabilitando SELINUX"
+  selinux:
     state: disabled
-    
-#- systemd:
-#    state: stopped
-#    name: firewalld.service     
-#    enabled: no
-#    masked: yes
-#    force: yes
-#  ignore_errors: yes
-#  when: 
-#    - ansible_distribution == "CentOS" 
-#    - YUM2PROXY is success
-    
-#- systemd:
-#    state: started
-#    name: tuned.service
-#    enabled: yes
-#    force: yes
-#  ignore_errors: yes
-#  when: 
-#    - ansible_distribution == "CentOS" 
-#    - PACKAGE is success
-#  register: TUNED
 
-#- shell: tuned-adm profile throughput-performance
-#  when:
-#    - TUNED is success
+- name: "Desabilitando Firewalld"
+  notify:
+    - Disable Firewalld
+
+- name: "Habilitando tuned"
+  shell: tuned-adm profile throughput-performance
+  notify:
+    - Start Tuned
 ...
