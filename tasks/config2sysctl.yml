@@ -31,6 +31,10 @@
     - { name: 'kernel.panic', value: '10' }
     - { name: 'kernel.nmi_watchdog', value: '0' }
     - { name: 'kernel.pid_max', value: '65536' }
+#   - { name: 'kernel.shmall', value: '2097152' }
+#   - { name: 'kernel.shmmax', value: '2147483648' }
+#   - { name: 'kernel.shmmni', value: '4096' }
+#   - { name: 'kernel.sem', value: '250 32000 100 128' }   
     - { name: 'vm.drop_caches', value: '3' }
     - { name: 'vm.swappiness', value: '10' }
 ...
