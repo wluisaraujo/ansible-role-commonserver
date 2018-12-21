@@ -28,6 +28,7 @@
     - { name: 'net.ipv6.conf.all.accept_ra', value: '0' }
     - { name: 'net.ipv6.conf.all.disable_ipv6', value: '0' }
     - { name: 'kernel.randomize_va_space', value: '2' }
+    - { name: 'kernel.panic', value: '10' }
     - { name: 'vm.drop_caches', value: '3' }
     - { name: 'vm.swappiness', value: '10' }
 ...
