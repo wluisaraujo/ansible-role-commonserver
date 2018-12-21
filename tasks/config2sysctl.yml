@@ -12,7 +12,7 @@
     ignoreerrors: yes
   with_items:
     - { name: 'fs.suid_dumpable', value: '0' }
-    - { name: 'kernel.nmi_watchdog',value: '0' }
+    - { name: 'fs.file-max',value: '65535' }
     - { name: 'net.ipv4.conf.all.accept_redirects', value: '0' }
     - { name: 'net.ipv4.conf.all.accept_source_route', value: '0'  }
     - { name: 'net.ipv4.conf.all.log_martians', value: '1' }
@@ -29,6 +29,8 @@
     - { name: 'net.ipv6.conf.all.disable_ipv6', value: '0' }
     - { name: 'kernel.randomize_va_space', value: '2' }
     - { name: 'kernel.panic', value: '10' }
+    - { name: 'kernel.nmi_watchdog', value: '0' }
+    - { name: 'kernel.pid_max', value: '65536' }
     - { name: 'vm.drop_caches', value: '3' }
     - { name: 'vm.swappiness', value: '10' }
 ...
