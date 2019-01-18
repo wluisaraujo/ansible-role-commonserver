@@ -40,6 +40,11 @@
   with_items:
     - 'export HISTTIMEFORMAT="[%d/%m/%y %T] "'
     - 'export TMOUT=600'
+ 
+- replace:
+    dest: /etc/logrotate.conf
+    regexp: '^#compress'
+    replace: 'compress'
 
 #- name: Configurando /etc/hosts.allow 
 #  lineinfile: 
