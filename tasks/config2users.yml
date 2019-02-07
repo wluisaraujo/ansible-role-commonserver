@@ -1,10 +1,10 @@
 ---
 - name: "Criando grupos administrativos"
   group:
-  name: "{{ item }}"
+  name: {{ item }}
     state: present
     system: yes
-  with_items: 
+  loop: 
     - "backup"
     - "dba"
     - "monitoramento"
@@ -27,12 +27,12 @@
     groups: operacao,wheel,sudo
     update_password: always
     comment: '{{ item.comm }}'
-  with_items:
-    - { name: 'araujo', password: '$1$IghpWON4$F20QFZI07pSsGXujh7Ros1', comm: 'araujo@{{ MEUDOMINIO }}' }
-    - { name: 'alfredo', password: '$1$P8FOYcQN$6a7L8EHrFgJK5e84z0POk.', comm: 'alfredo@{{ MEUDOMINIO }}' }
-    - { name: 'tominaga', password: '$1$Q5JyJUPb$JcR7aHJqLIR7WztMhwH6l/', comm: 'tominaga@{{ MEUDOMINIO }}' }
-    - { name: 'manzano', password: '$1$nfVurj1S$huqgz4cfpTdSlerRo7Ofa0', comm: 'manzano@{{ MEUDOMINIO }}' }
-    - { name: 'alisson', password: '$1$nfVurj1S$huqgz4cfpTdSlerRo7Ofa0', comm: 'suporte@{{ MEUDOMINIO }}' }
+  loop:
+    - "{ name: 'araujo', password: '$1$IghpWON4$F20QFZI07pSsGXujh7Ros1', comm: 'araujo@{{ MEUDOMINIO }}' }"
+    - "{ name: 'alfredo', password: '$1$P8FOYcQN$6a7L8EHrFgJK5e84z0POk.', comm: 'alfredo@{{ MEUDOMINIO }}' }"
+    - "{ name: 'tominaga', password: '$1$Q5JyJUPb$JcR7aHJqLIR7WztMhwH6l/', comm: 'tominaga@{{ MEUDOMINIO }}' }"
+    - "{ name: 'manzano', password: '$1$nfVurj1S$huqgz4cfpTdSlerRo7Ofa0', comm: 'manzano@{{ MEUDOMINIO }}' }"
+    - "{ name: 'alisson', password: '$1$nfVurj1S$huqgz4cfpTdSlerRo7Ofa0', comm: 'suporte@{{ MEUDOMINIO }}' }"
   register: RCUSER
 
 #- authorized_key:
