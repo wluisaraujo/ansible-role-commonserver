@@ -1,53 +1,52 @@
 ---
 # tasks file for iac-ansible-common-server
-
+#--------------------------------------------------------------------#
 - name: Configurando ambiente Linux
   import_tasks: config2environment.yml
   when: ( ansible_system == "Linux" )
-
+#--------------------------------------------------------------------#
 - name: Aplicando Timezone America/SP
   import_tasks: config2time.yml
   when: ( ansible_system == "Linux" )
-
+#--------------------------------------------------------------------#
 - name: Aplicando Parametros sysctl.conf
   import_tasks: config2sysctl.yml
   when: ( ansible_system == "Linux" )
-##############################################################
+#--------------------------------------------------------------------#
 - name: Importando tarefas para configuracoes de pacotes
   include_tasks: package-base-{{ ansible_distribution }}.yml
-##############################################################
-
-- name: Registrando sistemas Redhat)
+#--------------------------------------------------------------------#
+- name: Registrando sistemas Redhat
   import_tasks: config2redhatregister.yml
   when: ( ansible_distribution == "RedHat" and YUM2PROXY is success )
-
+#--------------------------------------------------------------------#
 - name: Instalando VM Guest Agent
   import_tasks: config2guestagent.yml
   when: ( ansible_system == "Linux" and PACKAGE is success)  
-
+#--------------------------------------------------------------------#
 - name: Aplicando configuracoes para {{ ansible_distribution }}
   include_tasks: config2base-{{ ansible_distribution }}.yml
-  
+#--------------------------------------------------------------------#  
 - name: Copiando arquivos
   import_tasks: config2files.yml
   when: ( ansible_system == "Linux" )
-
+#--------------------------------------------------------------------#
 - name: Aplicando PAM Limits
   import_tasks: config2pamrules.yml
   when: ( ansible_system == "Linux" )
-
+#--------------------------------------------------------------------#
 - name: Aplicando Configuracao de Usuários
   import_tasks: config2users.yml
   when: ( ansible_system == "Linux" )
-
+#--------------------------------------------------------------------#
 - name: Aplicando Configuracao de Usuários
   import_tasks: unconfig2users.yml        
   when: (ansible_system == "Linux")   
-
+#--------------------------------------------------------------------#
 - name: Configurarando /etc/sudoers 
   import_tasks: config2sudo.yml
   when: ( ansible_system == "Linux" )
-
+#--------------------------------------------------------------------#
 - name: Configurarando SNMP 
   import_tasks: config2snmp.yml
   when: ( ansible_system == "Linux" )  
