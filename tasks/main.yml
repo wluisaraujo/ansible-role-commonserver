@@ -39,13 +39,13 @@
 #  import_tasks: config2users.yml
 #  when: ( ansible_system == "Linux" )
 #--------------------------------------------------------------------#
-- name: Aplicando Configuracao de Usuários
-  import_tasks: unconfig2users.yml        
-  when: (ansible_system == "Linux")   
+#- name: Aplicando Configuracao de Usuários
+#  import_tasks: unconfig2users.yml        
+#  when: (ansible_system == "Linux")   
 #--------------------------------------------------------------------#
-- name: Configurarando /etc/sudoers 
-  import_tasks: config2sudo.yml
-  when: ( ansible_system == "Linux" )
+#- name: Configurarando /etc/sudoers 
+#  import_tasks: config2sudo.yml
+#  when: ( ansible_system == "Linux" )
 #--------------------------------------------------------------------#
 - name: Configurarando SNMP 
   import_tasks: config2snmp.yml
