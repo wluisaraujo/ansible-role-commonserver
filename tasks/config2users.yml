@@ -1,19 +1,19 @@
 ---
-- name: "Criando grupos administrativos"
-  group:
+#- name: "Criando grupos administrativos"
+- group:
   name: {{ item }}
     state: present
     system: yes
   loop: 
     - "backup"
-    - "dba"
-    - "monitoramento"
-    - "operacao"
-    - "sudo"
-    - "suporte"
-    - "helpdesk"
-    - "wheel"
-  register: RCGROUP  
+#    - "dba"
+#    - "monitoramento"
+#    - "operacao"
+#    - "sudo"
+#    - "suporte"
+#    - "helpdesk"
+#    - "wheel"
+#  register: RCGROUP  
 ## -------------------------------------------------------------------------------------------##        
 - name: 'Adiciona o usuarios da Operacao N3'
   user: 
