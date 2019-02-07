@@ -2,7 +2,7 @@
 - name: Start chronyd
   systemd:
     state: started
-    name:  chronyd.service 
+    name:  chronyd.service
     enabled: yes
   when: 
     - ansible_os_family == "RedHat" and ansible_distribution_major_version == "7"
