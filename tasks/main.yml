@@ -27,7 +27,7 @@
 
 - name: Aplicando configuracoes para {{ ansible_distribution }}
   include_tasks: config2base-{{ ansible_distribution }}.yml
-
+  
 - name: Copiando arquivos
   import_tasks: config2files.yml
   when: ( ansible_system == "Linux" )
