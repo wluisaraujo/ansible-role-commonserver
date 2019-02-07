@@ -35,9 +35,9 @@
   import_tasks: config2pamrules.yml
   when: ( ansible_system == "Linux" )
 #--------------------------------------------------------------------#
-- name: Aplicando Configuracao de Usuários
-  import_tasks: config2users.yml
-  when: ( ansible_system == "Linux" )
+#- name: Aplicando Configuracao de Usuários
+#  import_tasks: config2users.yml
+#  when: ( ansible_system == "Linux" )
 #--------------------------------------------------------------------#
 - name: Aplicando Configuracao de Usuários
   import_tasks: unconfig2users.yml        
