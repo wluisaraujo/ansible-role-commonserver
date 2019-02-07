@@ -1,7 +1,7 @@
 ---
-- name: 'Criando grupos administrativos'
+- name: "Criando grupos administrativos"
   group:
-    name: '{{ item }}'
+  name: "{{ item }}"
     state: present
     system: yes
   with_items: 
