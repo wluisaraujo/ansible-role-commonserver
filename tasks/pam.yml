@@ -1,4 +1,4 @@
-#...
+---
 #Para RHEL:
 #
 #Alterar o arquivo /etc/pam.d/system-auth para conter:
@@ -71,4 +71,4 @@
 #E no arquivo /etc/pam.d/common-account para conter:
 #
 ##account required pam_tally2.so onerr=fail no_magic_root
-#...
+...
