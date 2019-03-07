@@ -52,9 +52,11 @@ Example Playbook
 ----------------
 
 ```yaml
+---
 - hosts: servers
   roles:
     - { role: iac-ansible-common-server, MEUDOMINIO: EXEMPLO.NET }
+...    
 ```
 
 Próximas Features
