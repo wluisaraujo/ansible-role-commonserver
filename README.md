@@ -61,16 +61,16 @@ Próximas Features
 ----------------
 
 * Quem sabe um dia
- - Configurar tuned
- - Alterar o arquivo httpd.conf para conter: ServerTokens Prod
- - Alterar o arquivo httpd.conf para conter: ServerSignature Off
- - Alterar o arquivo sshd_config para conter: PermitRootLogin no
- - Alterar o arquivo main.cf para conter: disable_vrfy_command = yes
- - Alterar o arquivo /etc/login.defs para conter: PASS_MAX_DAYS 30
- - Alterar o arquivo /etc/login.defs para conter: PASS_WARN_AGE 3
- - Alterar o arquivo /etc/login.defs para conter: PASS_MIN_LEN 8
- - Alterar o arquivo /etc/pam.d/su para conter: "auth       required     /lib/security/pam_wheel.so group=wheel use_uid"
- - Alterar o arquivo /etc/inittab para não conter a linha: ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now; Em versões mais recentes, alterar o arquivo /etc/init/control-alt-delete.conf para não conter a linha: start on control-alt-delete
+  - Configurar tuned
+  - Alterar o arquivo httpd.conf para conter: ServerTokens Prod
+  - Alterar o arquivo httpd.conf para conter: ServerSignature Off
+  - Alterar o arquivo sshd_config para conter: PermitRootLogin no
+  - Alterar o arquivo main.cf para conter: disable_vrfy_command = yes
+  - Alterar o arquivo /etc/login.defs para conter: PASS_MAX_DAYS 30
+  - Alterar o arquivo /etc/login.defs para conter: PASS_WARN_AGE 3
+  - Alterar o arquivo /etc/login.defs para conter: PASS_MIN_LEN 8
+  - Alterar o arquivo /etc/pam.d/su para conter: "auth       required     /lib/security/pam_wheel.so group=wheel use_uid"
+  - Alterar o arquivo /etc/inittab para não conter a linha: ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now; Em versões mais recentes, alterar o arquivo /etc/init/control-alt-delete.conf para não conter a linha: start on control-alt-delete
 
 		 
 License
