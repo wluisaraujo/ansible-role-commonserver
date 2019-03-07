@@ -1,14 +1,12 @@
 [![Build Status](https://travis-ci.org/wluisaraujo/iac-ansible-common-server.svg?branch=master)](https://travis-ci.org/wluisaraujo/iac-ansible-common-server)
-=========
+------------
 
-iac-ansible-common-server
-=========
+Description
+------------
 
-Ajusta configurações de sistemas Linux, seguindo boas práticas ;)
-
-- config2base-CentOS.yml
-    
-- config2base-Debian.yml
+* Ajusta configurações de sistemas Linux, seguindo boas práticas ;)
+  - config2base-CentOS.yml
+  - config2base-Debian.yml
 
 - config2base-Ubuntu.yml
 
