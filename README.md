@@ -47,11 +47,15 @@ Ajusta configurações de sistemas Linux, seguindo boas práticas ;)
 Variaveis
 ------------
 
-- MEUDOMINIO: define o dominio do ambiente
+[defaults/main.yml](defaults/main.yml)
 
-- PROXYSERVER: define o servidor de proxy
-
-- PROXYPORT: define a porta do proxy 
+```yaml
+   vars:
+     - MEUDOMINIO: define o dominio do ambiente
+     - PROXYSERVER: define o servidor de proxy
+     - PROXYPORT: define a porta do proxy
+```     
+     
 
 Requirements
 ------------
@@ -62,12 +66,15 @@ Dependencies
 Example Playbook
 ----------------
 
-    - hosts: servers
-      roles:
-         - { role: iac-ansible-common-server, MEUDOMINIO: EXEMPLO.NET }
+```yaml
+- hosts: servers
+  roles:
+    - { role: iac-ansible-common-server, MEUDOMINIO: EXEMPLO.NET }
+```
 
 Próximas Features
 ----------------
+
 - Configurar tuned
 
 - Alterar o arquivo httpd.conf para conter: ServerTokens Prod
@@ -92,7 +99,7 @@ Próximas Features
 License
 -------
 
-GPLv3
+[GPLv3](https://www.gnu.org/licenses/gpl-3.0.pt-br.html)
 
 Author Information
 ------------------
