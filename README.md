@@ -7,40 +7,23 @@ Description
 * Ajusta configurações de sistemas Linux, seguindo boas práticas ;)
   - config2base-CentOS.yml
   - config2base-Debian.yml
-
-- config2base-Ubuntu.yml
-
-- config2clamav.yml
-
-- config2environment.yml
-
-- config2epel.yml
-
-- config2files.yml
-
-- config2guestagent.yml
-
-- config2pamrules.yml
-
-- config2rsyslog.yml
-
-- config2snmp.yml
-
-- config2sudo.yml
-
-- config2time.yml
-
-- config2users.yml
-
-- package-base-CentOS.yml
-
-- package-base-Debian.yml
-
-- package-base-RedHat.yml
-
-- package-base-Ubuntu.yml
-
-- unconfig2users.yml
+  - config2base-Ubuntu.yml
+  - config2clamav.yml
+  - config2environment.yml
+  - config2epel.yml
+  - config2files.yml
+  - config2guestagent.yml
+  - config2pamrules.yml
+  - config2rsyslog.yml
+  - config2snmp.yml
+  - config2sudo.yml
+  - config2time.yml
+  - config2users.yml
+  - package-base-CentOS.yml
+  - package-base-Debian.yml
+  - package-base-RedHat.yml
+  - package-base-Ubuntu.yml
+  - unconfig2users.yml
 
 Variaveis
 ------------
@@ -58,8 +41,12 @@ Variaveis
 Requirements
 ------------
 
+*
+
 Dependencies
 ------------
+
+*
 
 Example Playbook
 ----------------
@@ -73,10 +60,9 @@ Example Playbook
 Próximas Features
 ----------------
 
+* Quem sabe um dia
 - Configurar tuned
-
 - Alterar o arquivo httpd.conf para conter: ServerTokens Prod
-
 - Alterar o arquivo httpd.conf para conter: ServerSignature Off
 
 - Alterar o arquivo sshd_config para conter: PermitRootLogin no
