@@ -2,7 +2,7 @@
 galaxy_info:
   author: w.luis.araujo
   description: "Common Environment Server"
-  company: Personal
+  company: LUSAR
   license: (GPLv3)
 
   min_ansible_version: 2
