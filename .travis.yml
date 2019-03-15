@@ -11,11 +11,12 @@ sudo: true
 # Vars
 env:
  - global:
-     ANSIBLE_ACTION_WARNINGS="False"
-     ANSIBLE_COMMAND_WARNINGS="False"
-     ANSIBLE_DEPRECATION_WARNINGS="False"
-     ANSIBLE_SYSTEM_WARNINGS="False"
-     ANSIBLE_HOST_KEY_CHECKING="False"
+     - ROLE_NAME: iac-ansible-common-server
+     - ANSIBLE_ACTION_WARNINGS="False"
+     - ANSIBLE_COMMAND_WARNINGS="False"
+     - ANSIBLE_DEPRECATION_WARNINGS="False"
+     - ANSIBLE_SYSTEM_WARNINGS="False"
+     - ANSIBLE_HOST_KEY_CHECKING="False"
      
  - distribution: centos
    version: 7
@@ -64,4 +65,4 @@ script:
 
 notifications:
  webhooks: https://galaxy.ansible.com/api/v1/notifications/
----
+...
