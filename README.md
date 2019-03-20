@@ -76,9 +76,3 @@ Próximas Features
   - Alterar o arquivo /etc/login.defs para conter: PASS_MIN_LEN 8
   - Alterar o arquivo /etc/pam.d/su para conter: "auth       required     /lib/security/pam_wheel.so group=wheel use_uid"
   - Alterar o arquivo /etc/inittab para não conter a linha: ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now; Em versões mais recentes, alterar o arquivo /etc/init/control-alt-delete.conf para não conter a linha: start on control-alt-delete
-
-		 
-License
--------
-https://www.gnu.org/licenses/gpl-3.0.pt-br.html
-[GPLv3]()
