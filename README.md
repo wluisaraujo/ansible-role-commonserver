@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/wluisaraujo/iac-ansible-common-server.svg?branch=master)](https://travis-ci.org/wluisaraujo/iac-ansible-common-server)
 [![Ansible Galaxy](https://img.shields.io/badge/Ansible%20Galaxy-Common%20Server-blue.svg)](https://galaxy.ansible.com/wluisaraujo/iac-ansible-common-server)
+[![Licence](https://img.shields.io/badge/License-GPL%20v3-red.svg)](https://www.gnu.org/licenses/gpl-3.0.pt-br.html)
 
 ------------
 
@@ -7,7 +8,7 @@ Description
 ------------
 
 * Ajusta configurações de sistemas Linux, seguindo boas práticas ;)
-  - config2base-CentOS.yml
+  - [config2base-CentOS.yml](../tasks/config2base-CentOS.yml)
   - config2base-Debian.yml
   - config2base-Ubuntu.yml
   - config2clamav.yml
@@ -79,5 +80,5 @@ Próximas Features
 		 
 License
 -------
-
-[GPLv3](https://www.gnu.org/licenses/gpl-3.0.pt-br.html)
+https://www.gnu.org/licenses/gpl-3.0.pt-br.html
+[GPLv3]()
