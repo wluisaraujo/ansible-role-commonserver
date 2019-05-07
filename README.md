@@ -11,25 +11,25 @@ Description
 
 Tasks | Description
 --- | ---
-`[config2base-CentOS.yml](../tasks/config2base-CentOS.yml)` | Configuracao para CentOS
-`[config2base-Debian.yml](../tasks/config2base-Debian.yml)` | Configuracao para Debian
-`[config2base-Ubuntu.yml](../tasks/config2base-CentOS.yml)` | Configuracao para Ubuntu
-`[config2clamav.yml](../tasks/config2base-CentOS.yml)` | Configuracao Clamav AntiVirus
-`[config2environment.yml](../tasks/config2base-CentOS.yml)` | Configuracao de variaveis Linux
-`[config2epel.yml](../tasks/config2base-CentOS.yml)` | Configuracao do repositorio EPEL
-`[config2files.yml](../tasks/config2base-CentOS.yml)` | Configuracao de arquivos
-`[config2guestagent.yml](../tasks/config2base-CentOS.yml)` | Configuracao de Guest Agent (2VM)
-`[config2pamrules.yml](../tasks/config2base-CentOS.yml)` | Configuracaos de PAM
-`[config2rsyslog.yml](../tasks/config2base-CentOS.yml)` | Configuracao Log
-`[config2snmp.yml](../tasks/config2base-CentOS.yml)` | Configuracao protocolo SNMP
-`[config2sudo.yml](../tasks/config2base-CentOS.yml)` | Configuracoes de SUDO
-`[config2time.yml](../tasks/config2base-CentOS.yml)` | Configuracoes sincronismo de Data e Hora
-`[config2users.yml](../tasks/config2base-CentOS.yml)` | Configuracoes de Usuarios locais
-`[package-base-CentOS.yml](../tasks/config2base-CentOS.yml)` | Instalação de pacotes para CentOS
-`[package-base-Debian.yml](../tasks/config2base-CentOS.yml)` | Instalação de pacotes para Debian
-`[package-base-RedHat.yml](../tasks/config2base-CentOS.yml)` | Instalação de pacotes para RedHat
-`[package-base-Ubuntu.yml](../tasks/config2base-CentOS.yml)` | Instalação de pacotes para Ubuntu
-`[unconfig2users.yml` | Remoção de Usuários 
+[config2base-CentOS.yml](../tasks/config2base-CentOS.yml) | Configuracao para CentOS
+[config2base-Debian.yml](../tasks/config2base-Debian.yml) | Configuracao para Debian
+[config2base-Ubuntu.yml](../tasks/config2base-Ubuntu.yml) | Configuracao para Ubuntu
+[config2clamav.yml](../tasks/config2clamav.yml) | Configuracao Clamav AntiVirus
+[config2environment.yml](../tasks/config2environment.yml) | Configuracao de variaveis Linux
+[config2epel.yml](../tasks/config2epel.yml) | Configuracao do repositorio EPEL
+[config2files.yml](../tasks/config2files.yml) | Configuracao de arquivos
+[config2guestagent.yml](../tasks/config2guestagent.yml) | Configuracao de Guest Agent (2VM)
+[config2pamrules.yml](../tasks/config2pamrules.yml) | Configuracaos de PAM
+[config2rsyslog.yml](../tasks/config2rsyslog.yml) | Configuracao Log
+[config2snmp.yml](../tasks/config2snmp.yml) | Configuracao protocolo SNMP
+[config2sudo.yml](../tasks/config2sudo.yml) | Configuracoes de SUDO
+[config2time.yml](../tasks/config2time.yml) | Configuracoes sincronismo de Data e Hora
+[config2users.yml](../tasks/config2users.yml) | Configuracoes de Usuarios locais
+[package-base-CentOS.yml](../tasks/package-base-CentOS.yml) | Instalação de pacotes para CentOS
+[package-base-Debian.yml](../tasks/package-base-Debian.yml) | Instalação de pacotes para Debian
+[package-base-RedHat.yml](../tasks/package-base-RedHat.yml) | Instalação de pacotes para RedHat
+[package-base-Ubuntu.yml](../tasks/package-base-Ubuntu.yml) | Instalação de pacotes para Ubuntu
+[unconfig2users.yml] |(../tasks/unconfig2users.yml) Remoção de Usuários 
 
 Variaveis
 ------------
