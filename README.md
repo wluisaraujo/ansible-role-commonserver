@@ -9,6 +9,7 @@ Description
 
 * Ajusta configurações de sistemas Linux, seguindo boas práticas ;)
 
+Tasks | Description
 --- | ---
 `[config2base-CentOS.yml](../tasks/config2base-CentOS.yml)` | Configuracao para CentOS
 `[config2base-Debian.yml](../tasks/config2base-Debian.yml)` | Configuracao para Debian
