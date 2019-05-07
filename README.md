@@ -8,25 +8,27 @@ Description
 ------------
 
 * Ajusta configurações de sistemas Linux, seguindo boas práticas ;)
-  - [config2base-CentOS.yml](../tasks/config2base-CentOS.yml)
-  - config2base-Debian.yml
-  - config2base-Ubuntu.yml
-  - config2clamav.yml
-  - config2environment.yml
-  - config2epel.yml
-  - config2files.yml
-  - config2guestagent.yml
-  - config2pamrules.yml
-  - config2rsyslog.yml
-  - config2snmp.yml
-  - config2sudo.yml
-  - config2time.yml
-  - config2users.yml
-  - package-base-CentOS.yml
-  - package-base-Debian.yml
-  - package-base-RedHat.yml
-  - package-base-Ubuntu.yml
-  - unconfig2users.yml
+
+--- | ---
+`[config2base-CentOS.yml](../tasks/config2base-CentOS.yml)` | Configuracao para CentOS
+`[config2base-Debian.yml](../tasks/config2base-Debian.yml)` | Configuracao para Debian
+`[config2base-Ubuntu.yml](../tasks/config2base-CentOS.yml)` | Configuracao para Ubuntu
+`[config2clamav.yml](../tasks/config2base-CentOS.yml)` | Configuracao Clamav AntiVirus
+`[config2environment.yml](../tasks/config2base-CentOS.yml)` | Configuracao de variaveis Linux
+`[config2epel.yml](../tasks/config2base-CentOS.yml)` | Configuracao do repositorio EPEL
+`[config2files.yml](../tasks/config2base-CentOS.yml)` | Configuracao de arquivos
+`[config2guestagent.yml](../tasks/config2base-CentOS.yml)` | Configuracao de Guest Agent (2VM)
+`[config2pamrules.yml](../tasks/config2base-CentOS.yml)` | Configuracaos de PAM
+`[config2rsyslog.yml](../tasks/config2base-CentOS.yml)` | Configuracao Log
+`[config2snmp.yml](../tasks/config2base-CentOS.yml)` | Configuracao protocolo SNMP
+`[config2sudo.yml](../tasks/config2base-CentOS.yml)` | Configuracoes de SUDO
+`[config2time.yml](../tasks/config2base-CentOS.yml)` | Configuracoes sincronismo de Data e Hora
+`[config2users.yml](../tasks/config2base-CentOS.yml)` | Configuracoes de Usuarios locais
+`[package-base-CentOS.yml](../tasks/config2base-CentOS.yml)` | Instalação de pacotes para CentOS
+`[package-base-Debian.yml](../tasks/config2base-CentOS.yml)` | Instalação de pacotes para Debian
+`[package-base-RedHat.yml](../tasks/config2base-CentOS.yml)` | Instalação de pacotes para RedHat
+`[package-base-Ubuntu.yml](../tasks/config2base-CentOS.yml)` | Instalação de pacotes para Ubuntu
+`[unconfig2users.yml` | Remoção de Usuários 
 
 Variaveis
 ------------
