@@ -19,6 +19,7 @@
     - { name: 'net.ipv4.conf.all.rp_filter', value: '1' }
     - { name: 'net.ipv4.conf.all.secure_redirects', value: '0' }
     - { name: 'net.ipv4.conf.all.send_redirects', value: '0' }
+    - { name: 'net.ipv4.conf.default.send_redirects', value: '0' }
     - { name: 'net.ipv4.conf.default.accept_redirects', value: '0' }
     - { name: 'net.ipv4.conf.default.secure_redirects', value: '0' }
     - { name: 'net.ipv4.icmp_echo_ignore_broadcasts', value: '1' }
