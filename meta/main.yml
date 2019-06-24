@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: iac-ansible-common-server
   author: w.luis.araujo
   description: "Common Environment Server"
   company: LUSAR | wluisaraujo.github.io
