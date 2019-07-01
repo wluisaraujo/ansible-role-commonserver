@@ -11,7 +11,7 @@ sudo: true
 # Vars
 env:
   global:
-    - ROLE_NAME: iac-ansible-common-server
+    - ROLE_NAME: commonserver
     - ANSIBLE_ACTION_WARNINGS=False
     - ANSIBLE_COMMAND_WARNINGS=False
     - ANSIBLE_DEPRECATION_WARNINGS=False
@@ -53,7 +53,7 @@ install:
  - printf '[defaults]\nroles_path=../' >ansible.cfg
 
  # Install ansible-commons
- - ansible-galaxy install wluisaraujo.iac-ansible-common-server
+ - ansible-galaxy install wluisaraujo.commonserver
 
 script:
  # Basic role syntax check

@@ -59,7 +59,7 @@ Example Playbook
 ---
 - hosts: servers
   roles:
-    - { role: iac-ansible-common-server, MEUDOMINIO: EXEMPLO.NET }
+    - { role: commonserver, MEUDOMINIO: EXEMPLO.NET }
 ...    
 ```
 
