@@ -2,7 +2,7 @@
 galaxy_info:
   role_name: commonserver
   author: w.luis.araujo
-  description: "Common Environment Server"
+  description: "Infrastructure as Code (IaC) with Ansible role for Common Environment Server"
   company: LUSAR | wluisaraujo.github.io
   license: "license (GPLv3)"
 
