@@ -53,4 +53,21 @@
 #  with_items:
 #          - 'ALL: ALL: spawn /bin/echo "Tentativa de acesso em [$(/bin/date)] - Origem [ %u@%h (%n) ]" &>> /var/log/tcpwrappers.log'
 #          - 'ALL: ALL: spawn /bin/logger "Tentativa de acesso em [$(/bin/date)] - Origem [ %u@%h (%n) ]"'
+
+#  - replace:
+#      dest: /tmp/sshd_config
+#      regexp: "^{{ item.origem }}"
+#      replace: "{{ item.destino }}"
+#    with_items:
+#      - { origem: '#Port',                   destino: 'Port 22' }
+#      - { origem: '#PermitRootLogin',       destino: 'PermitRootLogin yes' }
+#      - { origem: '#GSSAPIAuthentication',   destino: 'GSSAPIAuthentication no' }
+#      - { origem: '#TCPKeepAlive',          destino: 'TCPKeepAlive yes' }
+#      - { origem: '#UseDNS',                 destino: 'UseDNS no' }
+#      - { origem: 'Port',                       destino: 'Port 22' }
+#      - { origem: 'PermitRootLogin',            destino: 'PermitRootLogin yes' }
+#      - { origem: 'GSSAPIAuthentication',       destino: 'GSSAPIAuthentication no' }
+#      - { origem: 'TCPKeepAlive',               destino: 'TCPKeepAlive yes' }
+#      - { origem: 'UseDNS',                     destino: 'Port 22' }#
+
 ...
