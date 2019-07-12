@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/wluisaraujo/ansible-role-commonserver.svg?branch=master)](https://travis-ci.org/wluisaraujo/ansible-role-commonserver) [![Ansible Galaxy](https://img.shields.io/badge/Ansible%20Galaxy-Common%20Server-blue.svg)](https://galaxy.ansible.com/wluisaraujo/iac-ansible-common-server)
+[![Build Status](https://travis-ci.org/wluisaraujo/ansible-role-commonserver.svg?branch=master)](https://travis-ci.org/wluisaraujo/ansible-role-commonserver) [![Ansible Galaxy](https://img.shields.io/badge/Ansible%20Galaxy-Common%20Server-blue.svg)](https://galaxy.ansible.com/wluisaraujo/commonserver)
 
 ------------
 
