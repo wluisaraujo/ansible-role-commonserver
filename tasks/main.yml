@@ -1,9 +1,12 @@
 ---
 # tasks file for iac-ansible-common-server
 #--------------------------------------------------------------------#
-- name: Configurando ambiente Linux
-  import_tasks: config2environment.yml
+- name: "Configurando ambiente Linux"
+  import_tasks: "{{ item }}"
   when: ( ansible_system == "Linux" )
+  with_items:
+    - config2environment.yml
+    - config2time.yml
 #--------------------------------------------------------------------#
 #- name: Aplicando Timezone America/SP
 #  import_tasks: config2time.yml
