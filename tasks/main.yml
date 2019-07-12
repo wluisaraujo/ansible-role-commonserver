@@ -7,14 +7,22 @@
   with_items:
     - config2environment.yml
     - config2time.yml
-#--------------------------------------------------------------------#
-#- name: Aplicando Timezone America/SP
-#  import_tasks: config2time.yml
-#  when: ( ansible_system == "Linux" )
-#--------------------------------------------------------------------#
-#- name: Aplicando Parametros sysctl.conf
-#  import_tasks: config2sysctl.yml
-#  when: ( ansible_system == "Linux" )
+    # - config2sysctl.yml
+    - package-base-{{ ansible_distribution }}.yml
+    # - config2redhatregister.yml
+    # - config2guestagent.yml
+    # - config2base-{{ ansible_distribution }}.yml
+    # - config2files.yml
+    # - config2pamrules.yml
+    - config2users.yml
+    # - unconfig2users.yml        
+    # - config2sudo.yml
+    # - config2snmp.yml
+    # - config2time.yml
+    # - config2sysctl.yml
+
+
+
 #--------------------------------------------------------------------#
 #- name: Importando tarefas para configuracoes de pacotes
 #  include_tasks: package-base-{{ ansible_distribution }}.yml
