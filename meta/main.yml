@@ -21,8 +21,7 @@ galaxy_info:
   - name: Ubuntu  
     versions:     
     - bionic
-    - xenial
-	
+    - xenial	
   galaxy_tags: 
     - server
 	- commpliance
