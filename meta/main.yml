@@ -9,21 +9,21 @@ galaxy_info:
   - name: Fedora
     versions:
     - 30
-    - 29
-  - name: EL
-    versions:
-    - 8
-    - 7
-  - name: Debian
-    versions:
-    - all
-  - name: Ubuntu
-    versions:
-    - bionic
-    - xenial
+#    - 29
+#  - name: EL
+#    versions:
+#    - 8
+#    - 7
+#  - name: Debian
+#    versions:
+#    - all
+#  - name: Ubuntu
+#    versions:
+#    - bionic
+#    - xenial
     
   galaxy_tags: 
     - server
-	- commpliance
-	- baseline
+#	- commpliance
+#	- baseline
 dependencies: []
