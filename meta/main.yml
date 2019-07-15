@@ -10,15 +10,15 @@ galaxy_info:
   - name: EL
     versions:
     - 7
-  - name: Fedora
-    versions:
-    - 30
-  - name: Debian
-    versions:
-    - all
-  - name: Ubuntu
-    versions:
-    - bionic
+#  - name: Fedora
+#    versions:
+#    - 30
+#  - name: Debian
+#    versions:
+#    - all
+#  - name: Ubuntu
+#    versions:
+#    - bionic
 	
   galaxy_tags: 
     - server
