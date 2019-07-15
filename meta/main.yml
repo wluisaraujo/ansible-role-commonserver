@@ -6,19 +6,22 @@ galaxy_info:
   license: "license (GPLv3)"
   min_ansible_version: 2.4
   
-  platforms:
-  - name: EL
-    versions:
+  platforms:    
+  - name: Fedora  
+    versions:     
+    - 30         
+    - 29
+  - name: EL  
+    versions:     
+    - 8         
     - 7
-#  - name: Fedora
-#    versions:
-#    - 30
-#  - name: Debian
-#    versions:
-#    - all
-#  - name: Ubuntu
-#    versions:
-#    - bionic
+  - name: Debian  
+    versions:     
+    - all         
+  - name: Ubuntu  
+    versions:     
+    - bionic         
+    - xenial   
 	
   galaxy_tags: 
     - server
