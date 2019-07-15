@@ -5,18 +5,16 @@ galaxy_info:
   description: "Infrastructure as Code (IaC) with Ansible role for Common Environment Server"
   company: LUSAR | wluisaraujo.github.io
   license: "license (GPLv3)"
-
   min_ansible_version: 2.4
   github_brach: master
-
   platforms:
   - name: EL
     versions:
     - 7
-  - name: Fedora
-    versions:
-    - 30
-    - 29	
+#  - name: Fedora
+#    versions:
+#    - 30
+#    - 29	
   - name: Debian
     versions:
     - all
@@ -24,7 +22,6 @@ galaxy_info:
     versions:
     - bionic
     - xenial	
-
   galaxy_tags:
      - server 
      - system
