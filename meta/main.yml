@@ -12,14 +12,14 @@ galaxy_info:
   - name: Fedora
     versions:
     - 30
-    - 29	
+#    - 29	
   - name: Debian
     versions:
     - all
   - name: Ubuntu
     versions:
     - bionic
-    - xenial	
+#    - xenial	
   galaxy_tags: 
     - server
 	- commpliance
