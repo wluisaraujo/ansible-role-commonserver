@@ -11,7 +11,7 @@ sudo: true
 # Vars
 env:
   global:
-    - ROLE_NAME: awx
+    - ROLE_NAME: commonserver
     - ANSIBLE_ACTION_WARNINGS: "False"
     - ANSIBLE_COMMAND_WARNINGS: "False"
     - ANSIBLE_DEPRECATION_WARNINGS: "False"
