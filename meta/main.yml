@@ -20,8 +20,8 @@ galaxy_info:
     - all         
   - name: Ubuntu  
     versions:     
-    - bionic         
-    - xenial   
+    - bionic
+    - xenial
 	
   galaxy_tags: 
     - server
