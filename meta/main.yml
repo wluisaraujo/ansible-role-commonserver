@@ -5,23 +5,23 @@ galaxy_info:
   company: LUSAR | wluisaraujo.github.io
   license: "license (GPLv3)"
   min_ansible_version: 2.4
-  
-  platforms:    
-  - name: Fedora  
-    versions:     
-    - 30         
+  platforms:
+  - name: Fedora
+    versions:
+    - 30
     - 29
-  - name: EL  
-    versions:     
-    - 8         
+  - name: EL
+    versions:
+    - 8
     - 7
-  - name: Debian  
-    versions:     
-    - all         
-  - name: Ubuntu  
-    versions:     
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
     - bionic
-    - xenial	
+    - xenial
+    
   galaxy_tags: 
     - server
 	- commpliance
