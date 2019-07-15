@@ -47,6 +47,13 @@ Requirements
 
 *
 
+Installation
+------------
+
+```console
+vagrant@localhost:~$ ansible-galaxy install wluisaraujo.commonserver
+```
+
 Dependencies
 ------------
 

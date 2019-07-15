@@ -11,14 +11,23 @@ sudo: true
 # Vars
 env:
   global:
-    - ROLE_NAME: commonserver
+    - ROLE_NAME: awx
+    - ANSIBLE_ACTION_WARNINGS: "False"
+    - ANSIBLE_COMMAND_WARNINGS: "False"
+    - ANSIBLE_DEPRECATION_WARNINGS: "False"
+    - ANSIBLE_SYSTEM_WARNINGS: "False"
+    - ANSIBLE_HOST_KEY_CHECKING: "False"
      
  - distribution: centos
    version: 7
  - distribution: fedora
    version: 30
+ - distribution: fedora
+   version: 29  
  - distribution: ubuntu
-   version: bionic 
+   version: bionic
+ - distribution: ubuntu
+   version: xenial  
  - distribution: debian
    version: buster
  - distribution: debian
