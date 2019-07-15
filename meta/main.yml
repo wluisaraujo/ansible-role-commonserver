@@ -1,4 +1,3 @@
----
 galaxy_info:
   role_name: commonserver
   author: w.luis.araujo
@@ -6,29 +5,23 @@ galaxy_info:
   company: LUSAR | wluisaraujo.github.io
   license: "license (GPLv3)"
   min_ansible_version: 2.4
-  github_brach: master
   platforms:
   - name: EL
     versions:
     - 7
-#  - name: Fedora
-#    versions:
-#    - 30
-#    - 29	
-#  - name: Debian
-#    versions:
-#    - all
-#  - name: Ubuntu
-#    versions:
-#    - bionic
-#    - xenial	
-  galaxy_tags:
-     - server 
-     - system
-     - hardening
-
-  dependencies: []
-
-  categories:
-     - Server
-...
+  - name: Fedora
+    versions:
+    - 30
+    - 29	
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - bionic
+    - xenial	
+  galaxy_tags: 
+    - server
+	- commpliance
+	- baseline
+dependencies: []
