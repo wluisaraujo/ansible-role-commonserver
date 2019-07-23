@@ -1,5 +1,12 @@
 ---
 # tasks file for iac-ansible-common-server
+- command: setenforce 0
+
+- replace:
+    path: /etc/selinux/config
+    regexp: '^SELINUX='
+    replace: 'SELINUX=disabled'
+
 - name: "Desabilitando SELINUX"
   selinux:
     state: disabled
