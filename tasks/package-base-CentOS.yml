@@ -1,11 +1,33 @@
 ---
-# tasks file for iac-ansible-common-server
+# tasks file for ansible-role-commonserver
+- yum:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  loop:
+    - epel-release
+    - centos-release-ovirt43
 
-- name: Instalar pacotes para o "{{ ansible_distribution }}" versão "{{ ansible_distribution_major_version }}"   
+- shell: yum-config-manager --enable "{{ item }}" > /dev/null 2>&1 
+  loop:
+    - "base"
+    - "centos-opstools-testing"
+    - "centos-ovirt43"
+    - "centos-ovirt43-testing"
+    - "centos-qemu-ev"
+    - "centos-release-opstools"
+    - "centosplus"
+    - "epel"
+    - "epel-testing"
+    - "extras"
+    - "fasttrack"
+    - "updates"
+    
+- name: "Instalar pacotes para o {{ ansible_distribution }} versão {{ ansible_distribution_major_version }}"   
   yum: 
     name: "{{ item }}"
     state: latest 
-  with_items:
+  loop:
     - bash-completion
     - bash-completion-extras
     - bind-utils
