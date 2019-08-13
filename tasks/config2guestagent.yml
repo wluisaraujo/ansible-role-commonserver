@@ -1,5 +1,5 @@
 ---
-# tasks file for iac-ansible-common-server
+# tasks file for ansible-role-commonserver
 
 ## VMware
 - name: Instalando VMware Guest Agent para Debian

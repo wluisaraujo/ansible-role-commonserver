@@ -1,5 +1,5 @@
 ---
-# tasks file for iac-ansible-common-server
+# tasks file for ansible-role-commonserver
 - pam_limits:
     domain: "*"
     limit_type: hard

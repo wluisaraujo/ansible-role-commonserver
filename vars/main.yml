@@ -1,5 +1,5 @@
 ---
-# vars file for baseline-server
+# vars file for ansible-role-commonserver
 MEUDOMINIO: exemplo.local
 PROXYSERVER: proxy.exemplo.local
 PROXYPORT: 3128

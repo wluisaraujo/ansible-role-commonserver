@@ -1,4 +1,5 @@
 ---
+# tasks file for ansible-role-commonserver
 #- name: "Criando grupos administrativos"
 - group:
   name: {{ item }}

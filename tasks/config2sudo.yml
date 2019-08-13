@@ -1,5 +1,5 @@
 ---
-### tasks file for common-server
+# tasks file for ansible-role-commonserver
 - yum:
     name: sudo
     state: present

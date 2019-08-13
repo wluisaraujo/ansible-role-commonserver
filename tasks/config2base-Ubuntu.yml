@@ -1,5 +1,5 @@
 ---
-# tasks file for iac-ansible-common-server
+# tasks file for ansible-role-commonserver
 
 - name: "Aplicando configurações em {{ ansible_distribution }} versão {{ ansible_distribution_major_version }}"
   shell: echo

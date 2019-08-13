@@ -1,5 +1,5 @@
 ---
-# tasks file for iac-ansible-common-server
+# tasks file for ansible-role-commonserver
 
 - name: Instalar pacotes para o "{{ ansible_distribution }}" versão "{{ ansible_distribution_major_version }}"
   yum: 

@@ -1,5 +1,5 @@
 ---
-# tasks file for iac-ansible-common-server
+# tasks file for ansible-role-commonserver
 
 - name: Configurarando entradas no arquivo /etc/hosts
   lineinfile: 

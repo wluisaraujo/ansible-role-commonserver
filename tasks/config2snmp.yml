@@ -1,5 +1,5 @@
 ---
-##
+# tasks file for ansible-role-commonserver
 - name: 'Install the latest version of SNMPD'
   yum:
     name: '{{ item }}'
