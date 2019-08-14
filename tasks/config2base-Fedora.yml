@@ -5,7 +5,7 @@
 - replace:
     path: /etc/selinux/config
     regexp: '^SELINUX='
-    replace: 'SELINUX=disabled'
+    replace: 'SELINUX=permissive'
 
 - name: "Desabilitando SELINUX"
   selinux:
