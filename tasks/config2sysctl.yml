@@ -38,4 +38,5 @@
 #   - { name: 'kernel.sem', value: '250 32000 100 128' }   
     - { name: 'vm.drop_caches', value: '3' }
     - { name: 'vm.swappiness', value: '10' }
+    - { name: 'net.ipv4.tcp_timestamps', value: '0' }
 ...
