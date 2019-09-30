@@ -52,6 +52,7 @@ Installation
 
 ```console
 vagrant@localhost:~$ ansible-galaxy install wluisaraujo.commonserver
+vagrant@localhost:~$ ansible-galaxy install -r wluisaraujo.commonserver/requirements.txt
 ```
 
 Dependencies
