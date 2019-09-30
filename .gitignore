@@ -33,3 +33,5 @@
 .zsh/local
 .zsh/pre-local
 id_rsa
+.vagrant
+.vagrant/*
