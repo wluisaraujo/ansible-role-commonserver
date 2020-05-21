@@ -1,0 +1,33 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: False
+
+  tasks:
+
+  # - lineinfile:
+  #     path: /etc/ssh/sshd_config
+  #     regexp: '^{{ item }}'
+  #     state: absent
+  #   loop:
+  #     - ClientAliveInterval
+  #     - ClientAliveCountMax
+  #     - IgnoreRhosts
+  #     - RhostsRSAAuthentication
+  #     - MaxAuthTries
+  #     - Protocol
+  #     - X11Forwarding
+
+  - lineinfile:
+      path: /etc/ssh/sshd_config
+      state: present
+      line: "{{ item }}"
+      backup: yes
+    loop:
+      - "ClientAliveInterval 900"
+      - "ClientAliveCountMax 1"
+      - "IgnoreRhosts yes"
+      - "RhostsRSAAuthentication no"
+      - "MaxAuthTries 3"
+      - "Protocol 2"
+      - "X11Forwarding no"

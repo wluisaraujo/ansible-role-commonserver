@@ -1,0 +1,30 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: False
+
+  tasks:
+
+- name: "Correcao Permissões"
+  import_playbook: command.yml
+
+- name: "Correcao cron|at allow"
+  import_playbook: etc_cronallow.yml
+
+- name: "Correcao limits"
+  import_playbook: etc_limits.yml
+
+- name: "Correcao banner MOTD"
+  import_playbook: etc_motd.yml
+
+- name: "Correcao profile"
+  import_playbook: etc_profile.yml
+
+- name: "Correcao sudoers"
+  import_playbook: etc_sudoers.yml
+
+- name: "Correcao sysctl"
+  import_playbook: etc_sysctl.yml
+
+- name: "Correcao permissões"
+  import_playbook: command.yml

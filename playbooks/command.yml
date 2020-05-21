@@ -1,0 +1,101 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: False
+
+  tasks:
+
+  - shell: |
+      for a in /var/adm/* /var/log/*
+      do
+      [ -f $a ] && sudo chmod 640 $a -v
+      [ -d $a ] && chmod 750 $a -v
+      done
+      exit 0
+
+  - shell: if [ -f "{{ item }}" ] ; then sudo chmod og-w "{{ item }}" -v ; fi
+    loop:
+      - /etc/dhcp/dhclient-eth0.conf
+
+  - shell: if [ -f "{{ item }}" ] ; then sudo chmod 0700 "{{ item }}" -v ; fi
+    loop:
+      - /usr/sbin/sendmail
+      - /etc/alternatives/mta
+
+#   - shell: if [ -f "{{ item }}" ] ; then sudo chmod -s "{{ item }}" -v ; fi
+#     loop:
+# #      - "{{ lookup('file', 'binarios.txt') }}"
+#       - /bin/cgclassify
+#       - /bin/cgexec
+#       - /bin/fusermount
+#       - /bin/mount
+#       - /bin/ping6
+#       - /bin/umount
+#       - /sbin/mount.nfs
+#       - /sbin/netreport
+#       - /usr/bin/at
+#       - /usr/bin/cgclassify
+#       - /usr/bin/cgexec
+#       - /usr/bin/chage
+#       - /usr/bin/checksftpuser
+#       - /usr/bin/chfn
+#       - /usr/bin/chsh
+#       - /usr/bin/fusermount
+#       - /usr/bin/gpasswd
+#       - /usr/bin/ksu
+#       - /usr/bin/locate
+#       - /usr/bin/lockfile
+#       - /usr/bin/mount
+#       - /usr/bin/newgrp
+#       - /usr/bin/pkexec
+#       - /usr/bin/screen
+#       - /usr/bin/ssh-agent
+#       - /usr/bin/staprun
+#       - /usr/bin/umount
+#       - /usr/bin/wall
+#       - /usr/bin/write
+#       - /usr/sbin/ccreds_chkpwd
+#       - /usr/sbin/lockdev
+#       - /usr/sbin/mount.nfs
+#       - /usr/sbin/netreport
+#       - /usr/sbin/pam_timestamp_check
+#       - /usr/sbin/sendmail.sendmail
+#       - /usr/sbin/seunshare
+#       - /usr/sbin/unix_chkpwd
+#       - /usr/sbin/usernetctl
+
+  # - shell: if [ -f "{{ item }}" ] ; then sudo chmod 750 "{{ item }}" -v && chown -v named "{{ item }}" ; fi
+  #   loop:
+  #     - /etc//named.iscdlv.key
+  #     - /etc//named.root.key
+  #     - /var/named/data
+  #     - /var/named/dynamic
+  #     - /var/named/slaves
+  #     - /var/named/dynamic/managed-keys.bind
+  #     - /var/named/dynamic/managed-keys.bind.jnl
+  -
+  - shell: if [ -f "{{ item }}" ] ; then sudo chown -v root:ec2-user "{{ item }}" ; fi
+    loop:
+      - /usr/bin/gcc
+      - /usr/bin/cc
+
+  # - file:
+  #     path: "{{ item }}"
+  #     state: touch
+  #     owner: root
+  #     group: ec2-user
+  #     mode: 0700
+  #   loop:
+  #     - /usr/bin/gcc
+  #     - /usr/bin/cc
+
+  # - shell: sudo ulimit -H -c 0
+
+  - shell: chkconfig "{{ item }}" off 2>> /dev/null
+    loop:
+      - NetworkManager-wait-online
+      - spice-vdagentd
+      - rtkit-daemon
+      - initial-setup-text
+      - cups
+      - accounts-daemon

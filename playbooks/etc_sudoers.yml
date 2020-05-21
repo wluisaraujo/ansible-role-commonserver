@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: False
+
+  tasks:
+
+  - lineinfile:
+      path: /etc/sudoers
+      state: present
+      line: "Defaults	syslog=authpriv,syslog_goodpri=info,syslog_badpri=info"
+      validate: /usr/sbin/visudo -cf %s

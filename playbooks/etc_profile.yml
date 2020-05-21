@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: False
+
+  tasks:
+
+  - lineinfile:
+      path: /etc/profile
+      state: present
+      line: "{{ item }}"
+    loop:
+      - TMOUT=900
+      - export TMOUT

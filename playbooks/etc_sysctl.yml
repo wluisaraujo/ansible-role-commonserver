@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: False
+
+  tasks:
+
+  - sysctl:
+      name: '{{ item.name }}'
+      state: present
+      value: '{{ item.value }}'
+      sysctl_file: /etc/sysctl.conf
+      sysctl_set: yes
+      reload: yes
+      ignoreerrors: yes
+    with_items:
+      - { name: 'net.ipv4.conf.all.log_martians',value: '1' }
+      - { name: 'net.ipv4.conf.all.forwarding',value: '0' }
+      - { name: 'net.ipv4.conf.all.rp_filter',value: '1' }
+      - { name: 'net.ipv4.conf.all.send_redirects',value: '0' }
+      - { name: 'net.ipv6.conf.all.accept_ra',value: '0' }
+      - { name: 'fs.suid_dumpable',value: '0' }

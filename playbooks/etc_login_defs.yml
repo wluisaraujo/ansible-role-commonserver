@@ -1,0 +1,32 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: False
+
+  tasks:
+
+  - lineinfile:
+      path: /etc/login.defs
+      regexp: '^{{ item }}'
+      state: absent
+    loop:
+      - PASS_MIN_LEN
+
+  - lineinfile:
+      path: /etc/login.defs
+      state: present
+      line: "PASS_MIN_LEN 8"
+
+  - lineinfile:
+      path: /etc/login.defs
+      regexp: '^{{ item }}'
+      state: absent
+    loop:
+      - PASS_WARN_AGE
+
+  - lineinfile:
+      path: /etc/login.defs
+      state: present
+      line: "PASS_WARN_AGE 3"
+
+  - command: sudo chage -W 3 ec2-user

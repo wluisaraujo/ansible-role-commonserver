@@ -1,0 +1,24 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: False
+
+  tasks:
+
+  - lineinfile:
+      path: /etc/at.allow
+      state: present
+      create: yes
+      line: "{{ item }}"
+    loop:
+      - root
+      - ec2-user
+
+  - lineinfile:
+      path: /etc/cron.allow
+      state: present
+      create: yes
+      line: "{{ item }}"
+    loop:
+      - root
+      - ec2-user

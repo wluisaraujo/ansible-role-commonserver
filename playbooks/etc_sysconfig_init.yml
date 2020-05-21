@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: False
+
+  tasks:
+
+  - replace:
+      path: /etc/sysconfig/init
+      regexp: '^PROMPT=yes'
+      replace: 'PROMPT=no'
+    register: result
+
+  - lineinfile:
+      path: /etc/sysconfig/init
+      state: present
+      line: "PROMPT=no"
