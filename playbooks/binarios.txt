@@ -4,7 +4,6 @@
 /bin/mount
 /bin/ping6
 /bin/umount
-Lista de arquivos com SUID/SGID desnecessários:
 /sbin/mount.nfs
 /sbin/netreport
 /usr/bin/at
