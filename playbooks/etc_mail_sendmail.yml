@@ -5,25 +5,6 @@
 
   tasks:
 
-  - lineinfile:
-      path: /etc/mail/sendmail.cf
-      regexp: '^{{ item }}'
-      state: absent
-    loop:
-      - O SmtpGreetingMessage=
-    register: result
-  
-  - lineinfile:
-      path: /etc/mail/sendmail.cf
-      state: present
-      line: "O SmtpGreetingMessage="
-
-  - lineinfile:
-      path: /etc/mail/sendmail.cf
-      state: present
-      line: "O DontBlameSendmail=safe"
-
-
   - file:
       path: /etc/mail/empty.txt
       state: touch
@@ -33,22 +14,23 @@
     tags: file
     register: fileok
 
-  # - replace:
-  #     path: /etc/mail/sendmail.cf
-  #     regexp: '^O HelpFile='
-  #     replace: ''
+  - lineinfile:
+      path: /etc/mail/sendmail.cf
+      regexp: '^{{ item }}'
+      state: absent
+    loop:
+      - "O SmtpGreetingMessage="
+      - "O DontBlameSendmail="
+      - "O PrivacyOptions="
+    register: result
 
   - lineinfile:
       path: /etc/mail/sendmail.cf
       state: present
-      line: "O HelpFile=/etc/mail/empty.txt"
-
-  # - replace:
-  #     path: /etc/mail/sendmail.cf
-  #     regexp: '^O PrivacyOptions='
-  #     replace: ''
-
-  - lineinfile:
-      path: /etc/mail/sendmail.cf
-      state: present
-      line: "O PrivacyOptions=authwarnings,novrfy,noexpn,restrictqrun,restrictmailq"
+      line:
+    loop:
+      - "O SmtpGreetingMessage="
+      - "O DontBlameSendmail=safe"
+      - "O HelpFile=/etc/mail/empty.txt"
+      - "O PrivacyOptions=authwarnings,novrfy,noexpn,restrictqrun,restrictmailq"
+    when: result is success
