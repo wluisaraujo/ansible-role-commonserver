@@ -8,4 +8,4 @@
   - lineinfile:
       path: /etc/pam.d/su
       state: present
-      line: "auth		required	pam_wheel.so use_uid"
+      line: "auth\t required\t pam_wheel.so\t use_uid"

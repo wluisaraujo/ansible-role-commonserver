@@ -8,4 +8,4 @@
   - lineinfile:
       path: /etc/security/limits.conf
       state: present
-      line: "*     hard    core    0"
+      line: "*\t hard\t core\t 0"

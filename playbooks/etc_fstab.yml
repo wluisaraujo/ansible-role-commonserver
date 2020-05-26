@@ -16,5 +16,5 @@
   - lineinfile:
       path: /etc/fstab
       state: present
-      line: "tmpfs /dev/shm tmpfs defaults,nodev,noexec,nosuid 0 0"
+      line: "tmpfs\t /dev/shm\t tmpfs\t defaults,nodev,noexec,nosuid\t 0 0"
     when: result is success
