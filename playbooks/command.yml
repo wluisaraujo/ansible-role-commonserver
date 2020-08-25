@@ -22,39 +22,22 @@
       - /usr/sbin/sendmail
       - /etc/alternatives/mta
 
-#   - shell: if [ -f "{{ item }}" ] ; then sudo chmod -s "{{ item }}" -v ; fi
-#     loop:
-# #      - "{{ lookup('file', 'binarios.txt') }}"
-#       - /usr/bin/at
-#       - /usr/bin/screen
-#       - /usr/bin/wall
+   - shell: if [ -f "{{ item }}" ] ; then sudo chmod -s "{{ item }}" -v ; fi
+     loop:
+       - "{{ lookup('file', 'binarios.txt') }}"
+       - /usr/bin/at
+       - /usr/bin/screen
+       - /usr/bin/wall
 
-  # - shell: if [ -f "{{ item }}" ] ; then sudo chmod 750 "{{ item }}" -v && chown -v named "{{ item }}" ; fi
-  #   loop:
-  #     - /etc//named.iscdlv.key
-  #     - /etc//named.root.key
-  #     - /var/named/data
-  #     - /var/named/dynamic
-  #     - /var/named/slaves
-  #     - /var/named/dynamic/managed-keys.bind
-  #     - /var/named/dynamic/managed-keys.bind.jnl
+   - shell: if [ -f "{{ item }}" ] ; then sudo chmod 750 "{{ item }}" -v && chown -R -v named "{{ item }}" ; fi
+     loop:
+       - /etc/named*
+       - /var/named*
   -
   - shell: if [ -f "{{ item }}" ] ; then sudo chown -v root:ec2-user "{{ item }}" ; fi
     loop:
       - /usr/bin/gcc
       - /usr/bin/cc
-
-  # - file:
-  #     path: "{{ item }}"
-  #     state: touch
-  #     owner: root
-  #     group: ec2-user
-  #     mode: 0700
-  #   loop:
-  #     - /usr/bin/gcc
-  #     - /usr/bin/cc
-
-  # - shell: sudo ulimit -H -c 0
 
   - shell: chkconfig "{{ item }}" off 2>> /dev/null
     loop:
